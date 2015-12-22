@@ -37,6 +37,10 @@ group :development, :test do
 end
 
 group :development, :test do
+  gem "pry"
+  gem "pry-byebug"
+  gem "pry-rails"
+  gem "rspec-rails", "3.4.0"
   gem "simplecov", "0.10.0", require: false
   gem "simplecov-rcov", "0.2.3", require: false
 end
@@ -44,4 +48,3 @@ end
 group :test do
   gem "webmock", "1.21.0"
 end
-
