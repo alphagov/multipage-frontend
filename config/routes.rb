@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get '/healthcheck', :to => proc { [200, {}, ['OK']] }
+
+  get '/:slug', to: 'multipart_contents#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
