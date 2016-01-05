@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MultipartFrontend</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title><%= yield(:title) %> - GOVUK</title>
+    <!--[if gt IE 8]><!--><%= stylesheet_link_tag "application" %><!--<![endif]-->
+    <!--[if IE 6]><%= stylesheet_link_tag "application-ie6" %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag "application-ie7" %><![endif]-->
+    <!--[if IE 8]><%= stylesheet_link_tag "application-ie8" %><![endif]-->
+    <%#= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
-
-</body>
+  <body>
+    <div id="global-breadcrumb" class="header-context"></div>
+    <div id="wrapper" role="main">
+      <div class="grid-row">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
