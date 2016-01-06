@@ -8,8 +8,8 @@ class MultipageContent
     @base_path = attrs.fetch(:base_path)
     @title = attrs.fetch(:title)
     @description = attrs.fetch(:description)
+    @public_updated_at = attrs[:public_updated_at]
     details = attrs.fetch(:details)
-    @public_updated_at = details.fetch(:public_updated_at)
 
     assign_parts(details)
   end

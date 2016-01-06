@@ -5,7 +5,6 @@ RSpec.describe MultipageContent do
     let(:content_id) { SecureRandom.uuid }
     let(:details) do
       {
-        "public_updated_at" => "2015-10-15T11:00:20+01:00",
         "parts" => [
           {"title" => "Part one", "slug" => "part-one", "body" => "A new beginning"},
           {"title" => "Part two", "slug" => "part-two", "body" => "The next bit"},
@@ -18,7 +17,7 @@ RSpec.describe MultipageContent do
         "title" => "A two part guide to foobar",
         "description" => "What follows is a brief description...",
         "content_id" => content_id,
-        "not_readable" => "not readable",
+        "public_updated_at" => "2015-10-15T11:00:20+01:00",
         "details" => details,
       }
     end
@@ -29,9 +28,6 @@ RSpec.describe MultipageContent do
       expect(subject.base_path).to eq(attrs["base_path"])
       expect(subject.title).to eq(attrs["title"])
       expect(subject.description).to eq(attrs["description"])
-    end
-
-    it "flattens details attributes" do
       expect(subject.public_updated_at).to eq("2015-10-15T11:00:20+01:00")
     end
 
