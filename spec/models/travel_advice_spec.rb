@@ -9,6 +9,14 @@ RSpec.describe TravelAdvice do
           "name" => "Albania",
           "slug" => "albania",
         },
+        "image" => {
+          "url" => "https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg",
+          "content_type" => "image/jpeg"
+        },
+        "document" => {
+          "url" => "",
+          "content_type" => ""
+        },
         "public_updated_at" => "2015-10-15T11:00:20+01:00",
         "summary" => "The summary",
         "change_description" => "Something changed",
@@ -48,6 +56,15 @@ RSpec.describe TravelAdvice do
       expect(subject.country).to be
       expect(subject.country.name).to eq("Albania")
       expect(subject.country.slug).to eq("albania")
+    end
+
+    it "assigns an image" do
+      expect(subject.image.url).to eq("https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg")
+      expect(subject.image.content_type).to eq("image/jpeg")
+    end
+    it "assigns a document" do
+      expect(subject.document.url).to eq("")
+      expect(subject.document.content_type).to eq("")
     end
   end
 end

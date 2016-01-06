@@ -1,7 +1,7 @@
 class TravelAdvice < MultipageContent
 
-  attr_reader :country, :summary, :change_description, :alert_status,
-              :email_signup_link, :reviewed_at
+  attr_reader :country, :image, :document, :summary, :change_description,
+              :alert_status, :email_signup_link, :reviewed_at
 
   def initialize(attrs)
     super
@@ -14,7 +14,8 @@ class TravelAdvice < MultipageContent
     @email_signup_link = details.fetch(:email_signup_link)
     @reviewed_at = details.fetch(:reviewed_at)
 
-    assign_country(attrs[:details])
+    assign_country(details)
+    assign_assets(details)
   end
 
   def navigation_parts
@@ -37,4 +38,8 @@ private
     @country = Country.new(country_attrs)
   end
 
+  def assign_assets(details)
+    @image = Asset.new(details[:image]) if details.key?(:image)
+    @document = Asset.new(details[:document]) if details.key?(:document)
+  end
 end
