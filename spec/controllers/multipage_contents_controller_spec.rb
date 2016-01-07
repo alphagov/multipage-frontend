@@ -78,5 +78,26 @@ RSpec.describe MultipageContentsController, type: :controller do
         expect(response.status).to eq(404)
       end
     end
+
+    context "format print" do
+      before do
+        content_store_has_item("/vat-rates", content_item_attrs)
+
+        get :show, slug: "vat-rates", variant: :print
+      end
+
+      it "is successful" do
+        expect(response).to be_successful
+      end
+
+      it "sets slimmer template header to print" do
+        expect(response.header["X-Slimmer-Template"]).to eq("print")
+      end
+
+      it "renders the print page" do
+        expect(response).to render_template("show")
+        expect(response).to render_template("application.print")
+      end
+    end
   end
 end

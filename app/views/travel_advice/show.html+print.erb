@@ -1,0 +1,19 @@
+<header>
+  <h1><%= @content.country.name %> travel advice</h1>
+</header>
+
+<div class="content-block" id="summary">
+  <%= render partial: "country_summary", locals: { content: @content }, formats: ["html"] %>
+</div>
+<% (@content.parts || []).each do |part| %>
+  <article class="content-block" id="<%= part.slug %>">
+    <header>
+      <h1><%= part.title %></h1>
+    </header>
+
+    <%# TODO: use raw handler when passed HTML %>
+    <%# raw part.body %>
+
+    <%= part.body %>
+  </article>
+<% end %>
