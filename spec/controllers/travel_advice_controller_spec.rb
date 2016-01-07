@@ -1,10 +1,14 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe TravelAdviceController do
   let(:content_id) { SecureRandom.uuid }
 
   let(:details) do
     {
+      "country" => {
+         "name" => "Albania",
+         "slug" => "albania",
+      },
       "summary" => "<p>Something about Albania</p>\n",
       "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
       "change_description" => "Something changed",
@@ -28,7 +32,7 @@ RSpec.describe TravelAdviceController do
     }
   end
 
-  describe 'GET show' do
+  describe "GET show" do
     before do
       content_store_has_item("/foreign-travel-advice/albania", content_item_attrs)
     end

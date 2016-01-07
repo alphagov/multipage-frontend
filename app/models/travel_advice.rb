@@ -34,7 +34,7 @@ class TravelAdvice < MultipageContent
 private
 
   def assign_country(details)
-    country_attrs = details[:country]
+    country_attrs = details.fetch(:country)
     @country = Country.new(country_attrs)
   end
 
