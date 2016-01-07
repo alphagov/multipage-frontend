@@ -3,7 +3,7 @@ class TravelAdvice < MultipageContent
   attr_reader :country, :image, :document, :summary, :change_description,
               :alert_status, :email_signup_link, :reviewed_at
 
-  def initialize(attrs)
+  def initialize(attrs, part_slug=nil)
     super
 
     attrs = attrs.deep_symbolize_keys

@@ -23,7 +23,7 @@ RSpec.describe MultipageContent do
     end
     subject { described_class.new(attrs) }
 
-    it "doesn't assign a current_part when initialized" do
+    it "assigns current_part to nil by default" do
       expect(subject.current_part).to be nil
     end
 
@@ -48,25 +48,33 @@ RSpec.describe MultipageContent do
     end
 
     describe "previous_part" do
-      it "is nil when the current part is the first part" do
-        subject.current_part = subject.parts.first
-
-        expect(subject.previous_part).not_to be
-      end
-
       it "is nil when the current part is nil" do
         expect(subject.previous_part).not_to be
       end
 
-      it "responds with the previous part in the parts array" do
-        subject.current_part = subject.parts.last
+      context "when the current part is the first part" do
+        subject { described_class.new(attrs, "part-one") }
 
-        expect(subject.previous_part).to be(subject.parts.first)
+        it "is nil" do
+          expect(subject.previous_part).not_to be
+        end
+      end
+
+      context "when the current part is not the first part" do
+        subject { described_class.new(attrs, "part-two") }
+
+        it "responds with the previous part in the parts array" do
+          expect(subject.previous_part).to be(subject.parts.first)
+        end
       end
     end
 
 
     describe "next_part" do
+      it "is the second part when the current part is nil" do
+        expect(subject.next_part).to be(subject.parts.second)
+      end
+
       context "when only one part exists" do
         before do
           details["parts"].pop
@@ -77,23 +85,20 @@ RSpec.describe MultipageContent do
         end
       end
 
-      it "is nil when the current part is the last part" do
-        subject.current_part = subject.parts.last
+      context "when the current part is the last part" do
+        subject { described_class.new(attrs, "part-two") }
 
-        expect(subject.next_part).to be(nil)
+        it "is nil" do
+          expect(subject.next_part).to be(nil)
+        end
       end
 
+      context "when the current part is not the last part" do
+        subject { described_class.new(attrs, "part-one") }
 
-
-      it "is the second part when the current part is nil" do
-        expect(subject.next_part).to be(subject.parts.second)
-      end
-
-
-      it "responds with the next part in the parts array" do
-        subject.current_part = subject.parts.first
-
-        expect(subject.next_part).to be(subject.parts.last)
+        it "responds with the next part in the parts array" do
+          expect(subject.next_part).to be(subject.parts.last)
+        end
       end
     end
   end

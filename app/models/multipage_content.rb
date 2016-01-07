@@ -1,9 +1,9 @@
 class MultipageContent
 
-  attr_reader :parts, :content_id, :base_path, :title, :description, :public_updated_at
-  attr_accessor :current_part
+  attr_reader :current_part, :parts, :content_id, :base_path,
+              :title, :description, :public_updated_at
 
-  def initialize(attrs)
+  def initialize(attrs, part_slug=nil)
     attrs = attrs.deep_symbolize_keys
     @content_id = attrs.fetch(:content_id)
     @base_path = attrs.fetch(:base_path)
@@ -13,9 +13,10 @@ class MultipageContent
     details = attrs.fetch(:details)
 
     assign_parts(details)
+    assign_current_part(part_slug)
   end
 
-  def part?(slug)
+  def has_part?(slug)
     parts.find{ |p| p.slug == slug }.present?
   end
 
@@ -38,6 +39,12 @@ private
   def assign_parts(details)
     return unless details.key?(:parts)
     @parts = details[:parts].map { |part| Part.new(part) }
+  end
+
+  def assign_current_part(part_slug)
+    return unless part_slug
+    return unless parts.any?
+    @current_part = parts.find{ |part| part.slug == part_slug }
   end
 end
 
