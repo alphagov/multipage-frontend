@@ -32,11 +32,6 @@ gem "unicorn", "5.0.1"
 # Use debugger
 # gem "debugger", group: [:development, :test]
 
-
-group :development, :test do
-  gem "rspec-rails", "3.4.0"
-end
-
 group :development, :test do
   gem "pry"
   gem "pry-byebug"
