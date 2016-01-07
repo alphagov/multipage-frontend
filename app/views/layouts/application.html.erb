@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> - GOVUK</title>
+    <title><%= @content.title %> - GOVUK</title>
     <%= yield :extra_stylesheets %>
+    <%= yield :extra_headers %>
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag "application" %><!--<![endif]-->
     <!--[if IE 6]><%= stylesheet_link_tag "application-ie6" %><![endif]-->
     <!--[if IE 7]><%= stylesheet_link_tag "application-ie7" %><![endif]-->
@@ -13,7 +14,7 @@
 
   <body>
     <div id="global-breadcrumb" class="header-context"></div>
-    <div id="wrapper" role="main">
+    <div id="wrapper" role="main" class="<%= wrapper_css_class(@content) %> guide">
       <div class="grid-row">
         <%= yield %>
       </div>

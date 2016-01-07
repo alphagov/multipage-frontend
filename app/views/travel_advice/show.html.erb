@@ -1,0 +1,45 @@
+<main id="content" role="main" class="group <%= @content.parts.any? ? "multi" : "single" %>-page">
+  <header class="page-header group">
+    <div>
+      <h1><span>Foreign travel advice </span><%= @content.country.name %></h1>
+    </div>
+  </header>
+
+  <div class="article-container group">
+    <%= render :partial => "travel_advice_navigation" if @content.parts.any? %>
+
+    <div class="content-block">
+      <div class="inner">
+
+      <% if @current_part %>
+        <header>
+          <h1><%= @current_part.title %></h1>
+        </header>
+
+        <%= raw @current_part.body %>
+      <% else %>
+        <%= render :partial => "country_summary", :locals => {:content => @content} %>
+      <% end %>
+
+        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), "#TODO", rel: "nofollow" %></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<div id="related-items"></div>
+
+<% content_for :extra_headers do %>
+  <link rel="alternate" type="application/json" href="#TODO" />
+  <%= auto_discovery_link_tag :atom, travel_advice_country_path(@content.country.slug, :format => :atom),
+    :title => "Recent updates for #{@content.country.name}" %>
+  <%- if @content.previous_part -%>
+    <link rel="prev" href="<%= travel_advice_country_path(@content.country.slug, @content.previous_part.slug) %>" />
+  <%- end -%>
+  <%- if @content.next_part -%>
+    <link rel="next" href="<%= travel_advice_country_path(@content.country.slug, @content.next_part.slug) %>" />
+  <%- end -%>
+  <% if @content.description %>
+    <meta name="description" content="<%= @content.description %>">
+  <% end %>
+<% end %>
