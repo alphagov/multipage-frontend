@@ -30,7 +30,7 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
-  <link rel="alternate" type="application/json" href="#TODO" />
+  <link rel="alternate" type="application/json" href="<%= api_path %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_country_path(@content.country.slug, :format => :atom),
     :title => "Recent updates for #{@content.country.name}" %>
   <%- if @content.previous_part -%>
