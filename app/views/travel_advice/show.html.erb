@@ -21,7 +21,7 @@
         <%= render partial: "country_summary", locals: {content: @content} %>
       <% end %>
 
-        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), "#TODO", rel: "nofollow" %></div>
+        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@content.country.slug), rel: "nofollow" %></div>
       </div>
 
     </div>
