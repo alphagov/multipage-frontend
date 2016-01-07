@@ -5,8 +5,8 @@ class MultipageContentsController < ApplicationController
 
     if @content.present?
       if params[:part]
-        @current_part = current_part
-        redirect_to base_path unless @current_part
+        @content.current_part = current_part
+        redirect_to base_path unless @content.current_part
       end
     else
       render_404

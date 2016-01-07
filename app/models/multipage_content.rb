@@ -1,6 +1,7 @@
 class MultipageContent
 
   attr_reader :parts, :content_id, :base_path, :title, :description, :public_updated_at
+  attr_accessor :current_part
 
   def initialize(attrs)
     attrs = attrs.deep_symbolize_keys
@@ -16,6 +17,20 @@ class MultipageContent
 
   def part?(slug)
     parts.find{ |p| p.slug == slug }.present?
+  end
+
+  def previous_part
+    if parts.size > 1 && parts.first != current_part
+      index = parts.index(current_part)
+      parts[index - 1] if index
+    end
+  end
+
+  def next_part
+    if parts.size > 1 && parts.last != current_part
+      index = parts.index(current_part) || 0
+      parts[index + 1]
+    end
   end
 
 private

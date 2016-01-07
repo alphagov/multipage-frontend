@@ -47,7 +47,7 @@ RSpec.describe MultipageContentsController, type: :controller do
 
         expect(response).to be_successful
         expect(assigns(:content)).to be
-        expect(assigns(:current_part)).not_to be
+        expect(assigns(:content).current_part).not_to be
       end
 
       it "responds successfully when a part is requested" do
@@ -55,7 +55,7 @@ RSpec.describe MultipageContentsController, type: :controller do
 
         expect(response).to be_successful
         expect(assigns(:content)).to be
-        expect(assigns(:current_part)).to be
+        expect(assigns(:content).current_part.slug).to eq("current-rates")
       end
 
       it "redirects to the base path when an invalid part is requested" do
@@ -63,7 +63,7 @@ RSpec.describe MultipageContentsController, type: :controller do
 
         expect(response).to redirect_to("/vat-rates")
         expect(assigns(:content)).to be
-        expect(assigns(:current_part)).not_to be
+        expect(assigns(:content).current_part).not_to be
       end
     end
 

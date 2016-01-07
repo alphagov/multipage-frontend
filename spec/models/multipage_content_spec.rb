@@ -23,6 +23,10 @@ RSpec.describe MultipageContent do
     end
     subject { described_class.new(attrs) }
 
+    it "doesn't assign a current_part when initialized" do
+      expect(subject.current_part).to be nil
+    end
+
     it "assigns each attribute" do
       expect(subject.content_id).to eq(attrs["content_id"])
       expect(subject.base_path).to eq(attrs["base_path"])
@@ -41,6 +45,56 @@ RSpec.describe MultipageContent do
       expect(subject.parts.second.slug).to eq("part-two")
       expect(subject.parts.second.title).to eq("Part two")
       expect(subject.parts.second.body).to eq("The next bit")
+    end
+
+    describe "previous_part" do
+      it "is nil when the current part is the first part" do
+        subject.current_part = subject.parts.first
+
+        expect(subject.previous_part).not_to be
+      end
+
+      it "is nil when the current part is nil" do
+        expect(subject.previous_part).not_to be
+      end
+
+      it "responds with the previous part in the parts array" do
+        subject.current_part = subject.parts.last
+
+        expect(subject.previous_part).to be(subject.parts.first)
+      end
+    end
+
+
+    describe "next_part" do
+      context "when only one part exists" do
+        before do
+          details["parts"].pop
+        end
+
+        it "is nil" do
+          expect(subject.next_part).not_to be
+        end
+      end
+
+      it "is nil when the current part is the last part" do
+        subject.current_part = subject.parts.last
+
+        expect(subject.next_part).to be(nil)
+      end
+
+
+
+      it "is the second part when the current part is nil" do
+        expect(subject.next_part).to be(subject.parts.second)
+      end
+
+
+      it "responds with the next part in the parts array" do
+        subject.current_part = subject.parts.first
+
+        expect(subject.next_part).to be(subject.parts.last)
+      end
     end
   end
 end
