@@ -57,6 +57,11 @@ describe "Viewing travel advice for albania" do
     click_link("Part two")
 
     expect(page).to have_current_path("/foreign-travel-advice/albania/part-two")
+
+    within(".content-block") do
+      expect(page).to have_css("h1", text: "Part two")
+      expect(page).to have_content("The next bit")
+    end
   end
 
   it "renders the summary with assets" do
