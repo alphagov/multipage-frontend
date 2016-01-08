@@ -1,0 +1,19 @@
+<header>
+  <h1><%= @content.title %></h1>
+</header>
+
+<div>
+  <%= @content.description %>
+</div>
+<% (@content.parts || []).each do |part| %>
+  <article id="<%= part.slug %>">
+    <header>
+      <h1><%= part.title %></h1>
+    </header>
+
+    <%# TODO: use raw handler when passed HTML %>
+    <%# raw part.body %>
+
+    <%= part.body %>
+  </article>
+<% end %>

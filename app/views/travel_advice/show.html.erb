@@ -6,7 +6,7 @@
   </header>
 
   <div class="article-container group">
-    <%= render :partial => "travel_advice_navigation" if @content.parts.any? %>
+    <%= render partial: "travel_advice_navigation" if @content.parts.any? %>
 
     <div class="content-block">
       <div class="inner">
@@ -18,10 +18,10 @@
 
         <%= raw @content.current_part.body %>
       <% else %>
-        <%= render :partial => "country_summary", :locals => {:content => @content} %>
+        <%= render partial: "country_summary", locals: {content: @content} %>
       <% end %>
 
-        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), "#TODO", rel: "nofollow" %></div>
+        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@content.country.slug), rel: "nofollow" %></div>
       </div>
 
     </div>
