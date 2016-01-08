@@ -30,8 +30,8 @@
       <h1 class="visuallyhidden">Subscriptions</h1>
       <p>Get updates</p>
       <ul>
-        <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
-        <li><%= link_to "feed", travel_advice_country_path(@content.country.slug, format: :atom), :class => "feed", :title => "Subscribe via RSS" %></li>
+        <li><%= link_to "email", @content.email_signup_link, class: "email-alerts", title: "Subscribe to email alerts" %></li>
+        <li><%= link_to "feed", travel_advice_country_path(@content.country.slug, format: :atom), class: "feed", title: "Subscribe via RSS" %></li>
       </ul>
     </section>
   </div>

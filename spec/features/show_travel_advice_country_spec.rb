@@ -63,4 +63,11 @@ describe "Viewing travel advice for albania" do
       expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
     end
   end
+
+  it "renders the subscriptions info" do
+    within(".subscriptions") do
+      expect(page).to have_link("email", href: "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL")
+      expect(page).to have_link("feed", href: "/foreign-travel-advice/albania.atom")
+    end
+  end
 end
