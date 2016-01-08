@@ -53,6 +53,10 @@ describe "Viewing travel advice for albania" do
       expect(page).to have_link("Part one")
       expect(page).to have_link("Part two")
     end
+
+    click_link("Part two")
+
+    expect(page).to have_current_path("/foreign-travel-advice/albania/part-two")
   end
 
   it "renders the summary with assets" do
