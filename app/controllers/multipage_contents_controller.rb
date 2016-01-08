@@ -1,6 +1,6 @@
 class MultipageContentsController < ApplicationController
   def show
-    content_item_response = ContentStore.service.content_item(base_path)
+    content_item_response = content_store.content_item(base_path)
     @content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
 
     if @content.present?
