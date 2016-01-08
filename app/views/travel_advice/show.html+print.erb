@@ -11,9 +11,6 @@
       <h1><%= part.title %></h1>
     </header>
 
-    <%# TODO: use raw handler when passed HTML %>
-    <%# raw part.body %>
-
-    <%= part.body %>
+    <%= raw part.body %>
   </article>
 <% end %>
