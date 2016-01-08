@@ -1,10 +1,11 @@
 require "rails_helper"
 
-RSpec.describe MultipageContent do
+RSpec.describe Multipage do
   describe "initialize" do
     let(:content_id) { SecureRandom.uuid }
     let(:details) do
       {
+        "updated_at" => "2015-10-15T11:00:20+01:00",
         "parts" => [
           {"title" => "Part one", "slug" => "part-one", "body" => "A new beginning"},
           {"title" => "Part two", "slug" => "part-two", "body" => "The next bit"},

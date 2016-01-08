@@ -19,6 +19,7 @@ describe "Viewing the print page for travel advice Albania" do
       "change_description" => "Something changed",
       "alert_status" => [],
       "email_signup_link" => "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL",
+      "updated_at" => "2015-10-14T12:00:10+01:00",
       "reviewed_at" => "2015-10-14T12:00:10+01:00",
       "parts" => [
         {"title" => "Part one", "slug" => "part-one", "body" => "A new beginning"},

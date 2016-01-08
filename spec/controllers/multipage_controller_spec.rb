@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe MultipageContentsController, type: :controller do
+RSpec.describe MultipageController, type: :controller do
   describe "GET show" do
     let(:content_id) { SecureRandom.uuid }
 
     let(:details) do
       {
         "body" => "<p>Something about VAT</p>\n",
-        "public_updated_at" => "2014-05-14T13:00:06.000+00:00"
+        "updated_at" => "2014-01-01T00:00:00.000+00:00",
       }
     end
 
@@ -17,6 +17,7 @@ RSpec.describe MultipageContentsController, type: :controller do
         "base_path" => "/vat-rates",
         "title" => "Vat rates",
         "description" => "VAT rates for goods and services",
+        "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
         "details" => details
       }
     end
