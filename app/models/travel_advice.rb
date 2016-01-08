@@ -1,4 +1,4 @@
-class TravelAdvice < MultipageContent
+class TravelAdvice < Multipage
 
   attr_reader :country, :image, :document, :summary, :change_description,
               :alert_status, :email_signup_link, :reviewed_at

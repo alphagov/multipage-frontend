@@ -1,0 +1,7 @@
+<h1><%= @presenter.title %></h1>
+<p><%= @presenter.description %></p>
+<ol>
+<% @presenter.parts.each do |part| -%>
+  <li><h3><%= part.title %></h3></li>
+<% end if @presenter.parts -%>
+</ol>

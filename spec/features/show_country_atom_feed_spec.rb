@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Viewing the print page for travel advice Albania" do
+describe "Viewing atom feed for albania" do
   let(:content_id) { SecureRandom.uuid }
 
   let(:details) do
@@ -40,35 +40,26 @@ describe "Viewing the print page for travel advice Albania" do
 
   before do
     content_store_has_item("/foreign-travel-advice/albania", content_item_attrs)
-    visit("/foreign-travel-advice/albania/print")
+    visit("/foreign-travel-advice/albania.atom")
   end
 
-  it "renders the print view including all travel advice parts" do
-    expect(page.status_code).to eq(200)
+  it "sets the alternative link correctly" do
+    href = page.find("//feed/link[rel='alternate']")["href"]
+    expect(href).to end_with("/foreign-travel-advice/albania")
+  end
 
-    within "main[role=main]" do
-      expect(page).to have_css("h1", :text => "Albania travel advice")
+  it "sets the entry's id to the url concatenated with updated_at" do
+    id = page.find("//feed/entry/id").text
+    expect(id).to end_with("/foreign-travel-advice/albania#2015-10-14T12:00:10+01:00")
+  end
 
-      section_titles = page.all("article h1").map(&:text)
-      expect(section_titles).to eq(["Part one", "Part two"])
+  it "sets the entry's title correctly" do
+    title = page.find("//feed/entry/title").text
+    expect(title).to eq("Albania travel advice")
+  end
 
-      within "#summary" do
-        expect(page).to have_css("h1", :text => "Summary")
-        expect(page).to have_content("Still current at: #{Date.today.strftime("%e %B %Y")}")
-        expect(page).to have_content("Updated: 14 October 2015")
-
-        expect(page).to have_content("Something about Albania")
-      end
-
-      within "#part-one" do
-        expect(page).to have_css("h1", :text => "Part one")
-        expect(page).to have_content("A new beginning")
-      end
-
-      within "#part-two" do
-        expect(page).to have_css("h1", :text => "Part two")
-        expect(page).to have_content("The next bit")
-      end
-    end
+  it "sets the entry's summary correctly" do
+    summary = page.find("//feed/entry/summary").text
+    expect(summary).to eq("Something changed")
   end
 end
