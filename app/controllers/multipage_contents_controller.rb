@@ -8,7 +8,7 @@ class MultipageContentsController < ApplicationController
         redirect_to base_path unless @content.has_part?(params[:part])
       end
     else
-      render_404
+      error_404
     end
   end
 
