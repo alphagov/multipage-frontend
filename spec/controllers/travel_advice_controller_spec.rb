@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe TravelAdviceController do
-  render_views
-
   let(:content_id) { SecureRandom.uuid }
 
   let(:details) do
