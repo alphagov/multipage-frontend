@@ -1,0 +1,372 @@
+body {
+  @include ie(8) {
+    min-width:1024px;
+  }
+}
+
+#wrapper {
+  @extend %site-width-container;
+}
+.grid-row {
+  @extend %grid-row;
+
+  main#content {
+    @include grid-column( 2/3, $full-width: desktop );
+  }
+}
+
+.content-block,
+article {
+  h1 {
+    @include bold-24;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  header h1 {
+    @include heading-27;
+    font-weight: 700;
+    color: $text-colour;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include ie-lte(8) {
+      zoom: 1;
+    }
+
+    span {
+      @include core-16;
+      display: block;
+      margin-bottom: 0.4em;
+    }
+  }
+
+  p {
+    @include core-19;
+  }
+
+  p,
+  ul,
+  ol {
+    margin: 0.75em 0;
+  }
+
+  ul, ol {
+    padding-left: 1em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+
+    @include media(mobile) {
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
+
+  .form-download {
+    padding: 0.25em 0 0.25em 0;
+
+    p {
+      padding-right: 3em;
+    }
+
+    a {
+      display: block;
+      font-weight: 600;
+      background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+      min-height: 2.5em;
+      padding:0 0 0 2.5em;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("icon-file-download-2x.png");
+        background-size: 25px 25px;
+      }
+    }
+
+    a[rel="external"]:after {
+      content: none;
+    }
+  }
+}
+
+.print-link {
+  text-align: left;
+  margin: 2em 0 16px 0;
+
+  a, a:link, a:visited {
+    background: image-url("icon-print.png") no-repeat 0% 50%;
+    padding: 0.5em 0 0.5em 28px;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-print-2x.png");
+      background-size: 16px 18px;
+    }
+
+    zoom: 1;
+  }
+
+  @include media(mobile) {
+    width:60%;
+
+    a, a:link, a:visited {
+      padding-bottom:4px;
+    }
+  }
+}
+
+#wrapper.travel-advice p img {
+  display: block;
+  margin: 0 -1em;
+  padding-left: 1em;
+
+  @include media(tablet) {
+    max-width: 100%;
+  }
+}
+
+.article-container {
+  /* Make webkit browsers contain the margin-bottom of report-a-problem */
+  .travel-advice & {
+    padding-bottom: 0.01em;
+  }
+}
+
+/* visited link colour overrides */
+#content.multi-page li a:visited,
+#content.multi-page .pagination li a:visited,
+#wrapper.programme .article-container nav a:visited {
+  color: $link-visited-colour;
+}
+
+#content.multi-page {
+  header {
+    position: relative;
+  }
+
+  aside {
+    z-index: 10;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    overflow: hidden;
+
+    @include media(tablet) {
+      margin: 0 0 2.5em;
+    }
+
+    @include ie(6) {
+      zoom: 1;
+    }
+
+    @include media(mobile) {
+      width:auto;
+      overflow:hidden;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+aside .show-all-parts {
+  @include core-19($line-height: (45/19), $line-height-640: (45/13));
+  border: solid 1px $border-colour;
+  border-width: 1px 0;
+
+  padding: 0 16px;
+  display: none;
+
+  @include media(mobile) {
+    display: block;
+    background: transparent image-url("accordian-arrow.png") 100% 6px no-repeat;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("accordian-arrow-2x.png");
+    background-size: 45px 90px;
+  }
+
+  &,
+  &:hover,
+  &:focus {
+    text-decoration:none;
+  }
+
+  &.show-all-parts-open {
+    background-position: 100% -40px;
+    border-bottom: none;
+  }
+}
+
+aside .page-navigation {
+
+  @include media(mobile) {
+    margin-top: 0;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    float:left;
+    display: inline;
+    overflow: hidden;
+    width:50%;
+
+    @include ie-lte(7) {
+      width: 49%;
+    }
+
+    @include media(mobile) {
+      float: none;
+      display: block;
+      width: auto;
+    }
+  }
+
+  li {
+    list-style: decimal;
+    list-style-position: outside;
+    margin-right: 0.75em;
+    margin-left: 1.5em;
+    clear: left;
+
+    @include core-16;
+
+    @include ie-lte(7) {
+      list-style: none;
+      margin-left: 0;
+      display: list-item;
+    }
+
+    @include media(mobile) {
+      float: none;
+      margin: 0 1em 0 2.25em;
+    }
+
+    a {
+      display: block;
+      padding: 0.25em 1em 0.25em 0;
+
+      @include ie-lte(7) {
+        display: inline;
+        float: left;
+      }
+
+      span {
+        cursor: pointer;
+      }
+
+      &:hover span.part-title,
+      &:focus span.part-title,
+      &:hover span.part-description,
+      &:focus span.part-description {
+        color: $link-hover-colour;
+      }
+    }
+
+    span {
+      @include ie-lte(7) {
+        float: left;
+      }
+
+      &.part-number {
+        display: none;
+        width: 1.75em;
+
+        @include ie-lte(7) {
+          display: inline;
+          padding: 0.25em 0;
+        }
+      }
+
+      &.part-label,
+      &.part-title {
+        line-height: 1.5;
+        display: inline;
+      }
+
+      &.part-label {
+        color: $text-colour;
+        padding:0 0.5em 0 0;
+      }
+
+      &.part-description {
+        line-height: 1.25;
+        display: block;
+        clear: left;
+      }
+
+      &.part-title {
+        color: #2E3191;
+        text-decoration: underline;
+        line-height: 1.5;
+      }
+    }
+
+    &.active {
+      padding: 0.25em 0.25em 0.25em 0;
+
+      span.part-number {
+        padding: 0;
+      }
+
+      span.part-title {
+        color: $text-colour;
+        text-decoration: none;
+      }
+    }
+
+    @include media(mobile) {
+      &.active {
+        padding: 0;
+      }
+
+      @include core-19($line-height: (45/19));
+
+      span, a {
+        margin: 0 -1em 0 -2.25em;
+        padding: 0em 1em 0.75em 2.75em;
+      }
+
+      span {
+        display: block;
+
+        &.part-title,
+        &.part-label {
+          display: inline;
+        }
+
+        &.part-label {
+          padding-right: 1em;
+        }
+      }
+    }
+  }
+
+  ol[start] li {
+    margin-left: 1.8em;
+
+    @include media(mobile) {
+      margin-left: 2.25em;
+    }
+  }
+}
+
+aside .page-navigation-open {
+  border-bottom: solid 1px $border-colour;
+
+  ol {
+    position: static;
+    left: auto;
+  }
+}
+
+aside .page-navigation-closed {
+  border-bottom: none;
+
+  @include media(mobile) {
+    ol {
+      position: absolute;
+      left: -9999em;
+    }
+  }
+}
