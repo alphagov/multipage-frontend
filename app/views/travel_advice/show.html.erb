@@ -1,9 +1,5 @@
 <main id="content" role="main" class="group <%= @presenter.parts.any? ? "multi" : "single" %>-page">
-  <header class="page-header group">
-    <div>
-      <h1><span>Foreign travel advice </span><%= @presenter.country.name %></h1>
-    </div>
-  </header>
+  <%= render partial: "govuk_component/title", locals: { title: @presenter.country.name, context: "Foreign travel advice" } %>
 
   <div class="article-container group">
     <%= render partial: "travel_advice_navigation" if @presenter.parts.any? %>
@@ -12,11 +8,9 @@
       <div class="inner">
 
       <% if @presenter.current_part %>
-        <header>
-          <h1><%= @presenter.current_part.title %></h1>
-        </header>
+        <%= render partial: "govuk_component/title", locals: { title: @presenter.current_part.title, average_length: "long" } %>
 
-        <%= raw @presenter.current_part.body %>
+        <%= render partial: "govuk_component/govspeak", locals: { content: @presenter.current_part.body } %>
       <% else %>
         <%= render partial: "country_summary", locals: {presenter: @presenter} %>
       <% end %>

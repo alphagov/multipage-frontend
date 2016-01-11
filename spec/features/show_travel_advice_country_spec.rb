@@ -60,14 +60,14 @@ describe "Viewing travel advice for albania" do
     expect(page).to have_current_path("/foreign-travel-advice/albania/part-two")
 
     within(".content-block") do
-      expect(page).to have_css("h1", text: "Part two")
+      expect(page).to have_content("Part two")
       expect(page).to have_content("The next bit")
     end
   end
 
   it "renders the summary with assets" do
     within(".content-block") do
-      expect(page).to have_css("h1", text: "Summary")
+      expect(page).to have_content("Summary")
       expect(page).to have_content("Something about Albania")
       expect(page).to have_css("img[src='https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg']")
       expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
