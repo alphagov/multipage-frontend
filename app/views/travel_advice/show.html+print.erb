@@ -1,11 +1,11 @@
 <header>
-  <h1><%= @content.country.name %> travel advice</h1>
+  <h1><%= @presenter.country.name %> travel advice</h1>
 </header>
 
 <div class="content-block" id="summary">
-  <%= render partial: "country_summary", locals: { content: @content }, formats: ["html"] %>
+  <%= render partial: "country_summary", locals: {presenter: @presenter}, formats: ["html"] %>
 </div>
-<% (@content.parts || []).each do |part| %>
+<% (@presenter.parts || []).each do |part| %>
   <article class="content-block" id="<%= part.slug %>">
     <header>
       <h1><%= part.title %></h1>

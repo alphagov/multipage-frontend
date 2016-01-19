@@ -47,24 +47,24 @@ RSpec.describe MultipageController, type: :controller do
         get :show, slug: "vat-rates"
 
         expect(response).to be_successful
-        expect(assigns(:content)).to be
-        expect(assigns(:content).current_part).not_to be
+        expect(assigns(:presenter).content).to be
+        expect(assigns(:presenter).current_part).not_to be
       end
 
       it "responds successfully when a part is requested" do
         get :show, slug: "vat-rates", part: "current-rates"
 
         expect(response).to be_successful
-        expect(assigns(:content)).to be
-        expect(assigns(:content).current_part.slug).to eq("current-rates")
+        expect(assigns(:presenter).content).to be
+        expect(assigns(:presenter).current_part.slug).to eq("current-rates")
       end
 
       it "redirects to the base path when an invalid part is requested" do
         get :show, slug: "vat-rates", part: "current-rateses"
 
         expect(response).to redirect_to("/vat-rates")
-        expect(assigns(:content)).to be
-        expect(assigns(:content).current_part).not_to be
+        expect(assigns(:presenter).content).to be
+        expect(assigns(:presenter).current_part).not_to be
       end
     end
 

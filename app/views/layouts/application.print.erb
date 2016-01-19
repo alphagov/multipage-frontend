@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title><%= @content.title %> - GOV.UK</title>
-  <% if @content.description.present? %>
-    <meta name="description" content="<%= @content.description %>">
+  <title><%= @presenter.title %> - GOV.UK</title>
+  <% if @presenter.description.present? %>
+    <meta name="description" content="<%= @presenter.description %>">
   <% end %>
 
   <%= yield :extra_headers %>
 </head>
 <body>
-  <div id="wrapper" class="<%= wrapper_css_class(@content) %>">
+  <div id="wrapper" class="<%= @presenter.content_class_dasherized %>">
     <main role="main">
       <%= yield %>
     </main>

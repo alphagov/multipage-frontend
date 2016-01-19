@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @content.title %> - GOVUK</title>
+    <title><%= @presenter.title %> - GOVUK</title>
     <%= yield :extra_stylesheets %>
     <%= yield :extra_headers %>
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag "application" %><!--<![endif]-->
@@ -14,7 +14,7 @@
 
   <body>
     <div id="global-breadcrumb" class="header-context"></div>
-    <div id="wrapper" role="main" class="<%= wrapper_css_class(@content) %> guide">
+    <div id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %> guide">
       <div class="grid-row">
         <%= yield %>
       </div>

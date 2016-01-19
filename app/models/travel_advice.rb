@@ -18,21 +18,7 @@ class TravelAdvice < Multipage
     assign_assets(details)
   end
 
-  def navigation_parts
-    nav_parts = [Part.new(slug: nil, title: "Summary", body: nil)]
-    nav_parts + parts
-  end
-
-  def last_reviewed_or_updated_at
-    if reviewed_at
-      Date.parse(reviewed_at)
-    else
-      updated_at
-    end
-  end
-
 private
-
   def assign_country(details)
     country_attrs = details.fetch(:country)
     @country = Country.new(country_attrs)
