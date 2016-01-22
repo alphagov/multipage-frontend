@@ -1,23 +1,19 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  common:
+    last_updated: "Last updated"
+  formats:
+    guide:
+      name: "Guide"
+      part: "Part"
+      printer_friendly_page: "Print entire guide"
+      at_beginning_of_guide: "You are at the beginning of this guide"
+      at_end_of_guide: "You have reached the end of this guide"
+      navigate_to_previous_part: "Navigate to previous part"
+      navigate_to_next_part: "Navigate to next part"
+      notes: "Notes"
+  travel_advice:
+    alert_status:
+      avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.
+      avoid_all_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all travel to parts of the country.
+      avoid_all_but_essential_travel_to_whole_country: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to the whole country.
+      avoid_all_travel_to_whole_country: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all travel to the whole country.
