@@ -48,8 +48,8 @@ RSpec.describe TravelAdviceController do
       get :show, country_slug: "albania", part: "tundra"
 
       expect(response).to redirect_to("/foreign-travel-advice/albania")
-      expect(assigns(:content)).to be
-      expect(assigns(:current_part)).not_to be
+      expect(assigns(:presenter).content).to be
+      expect(assigns(:presenter).current_part).not_to be
     end
   end
 end

@@ -1,12 +1,12 @@
 class MultipageController < ApplicationController
   def show
     content_item_response = content_store.content_item(base_path)
-    @content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
+    content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
 
-    if @content.present?
-      @presenter = presenter_class.new(@content, self)
+    if content.present?
+      @presenter = presenter_class.new(content, self)
 
-      if params[:part] && !@content.has_part?(params[:part])
+      if params[:part] && !content.has_part?(params[:part])
         redirect_to base_path
         return
       end

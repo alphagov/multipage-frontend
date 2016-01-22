@@ -1,4 +1,4 @@
-<% if content.parts.present? then %>
+<% if presenter.parts.present? %>
 <header>
   <h1>Summary</h1>
 </header>
@@ -6,28 +6,28 @@
 
 <ul class="country-metadata">
   <li><div class="label">Still current at:</div> <%= Date.today.strftime("%e %B %Y") %></li>
-  <li><div class="label">Updated:</div> <%= content.last_reviewed_or_updated_at.strftime("%e %B %Y") %></li>
-  <li><%= simple_format content.change_description %></li>
+  <li><div class="label">Updated:</div> <%= presenter.last_reviewed_or_updated_at.strftime("%e %B %Y") %></li>
+  <li><%= simple_format presenter.change_description %></li>
 </ul>
 
-<% if content.alert_status.present? %>
+<% if presenter.alert_status.present? %>
   <div class="application-notice help-notice">
-    <% content.alert_status.each do |alert| %>
+    <% presenter.alert_status.each do |alert| %>
       <p><%= raw t("travel_advice.alert_status.#{alert}") %></p>
     <% end %>
   </div>
 <% end %>
 
-<% if content.image %>
+<% if presenter.image %>
   <p>
-    <img src="<%= content.image.url %>" alt="" />
+    <img src="<%= presenter.image.url %>" alt="" />
   </p>
 <% end %>
-<% if content.document %>
+<% if presenter.document %>
   <div class="form-download">
   <p>
-    <a href="<%= content.document.url %>">Download map (PDF)</a>
+    <a href="<%= presenter.document.url %>">Download map (PDF)</a>
   </p>
   </div>
 <% end %>
-<%= raw content.summary %>
+<%= raw presenter.summary %>

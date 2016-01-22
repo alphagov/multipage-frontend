@@ -1,0 +1,16 @@
+<header>
+  <h1><%= @presenter.title %></h1>
+</header>
+
+<div>
+  <%= @presenter.description %>
+</div>
+<% (@presenter.parts || []).each do |part| %>
+  <article id="<%= part.slug %>">
+    <header>
+      <h1><%= part.title %></h1>
+    </header>
+
+    <%= raw part.body %>
+  </article>
+<% end %>
