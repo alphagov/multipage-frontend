@@ -2,6 +2,10 @@
 
 A frontend application for rendering content across multiple pages.
 
+## Screenshots
+
+![Travel Advice](https://raw.githubusercontent.com/alphagov/multipage-frontend/master/docs/assets/screenshot.png)
+
 ## Technical documentation
 
 This is a Ruby on Rails application that renders content items from the  [content-store](https://github.com/alphagov/content-store) which have multiple parts or pages.
