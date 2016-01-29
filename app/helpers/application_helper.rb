@@ -28,6 +28,6 @@ module ApplicationHelper
   end
 
   def breadcrumbs_data
-    @presenter.links[:parent] if @presenter.links.any?
+    @presenter.links[:parent] if @presenter.links && @presenter.links.any?
   end
 end

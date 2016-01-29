@@ -13,8 +13,9 @@
   </head>
 
   <body>
-    <div id="global-breadcrumb" class="header-context"></div>
     <div id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %> guide">
+      <%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: breadcrumbs } %>
+
       <div class="grid-row">
         <%= yield %>
       </div>

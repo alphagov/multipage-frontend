@@ -8,7 +8,8 @@ class MultipagePresenter
     :previous_part,
     :public_updated_at,
     :title,
-    :updated_at
+    :updated_at,
+    :links
 
   attr_accessor :content, :controller
 
