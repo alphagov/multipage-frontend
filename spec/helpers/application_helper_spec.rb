@@ -26,6 +26,10 @@ RSpec.describe ApplicationHelper do
       expect(helper.breadcrumbs(data)).to eq(
         [
           {
+            title: "Home",
+            url: "/",
+          },
+          {
             title: "Passports, travel and living abroad",
             url: "/browse/abroad",
           },
@@ -43,13 +47,19 @@ RSpec.describe ApplicationHelper do
 
     context "with nil data" do
       it "returns an empty array" do
-        expect(breadcrumbs(nil)).to eq([])
+        expect(breadcrumbs(nil)).to eq([{
+            title: "Home",
+            url: "/",
+          }])
       end
     end
 
     context "with no data" do
       it "returns an empty array" do
-        expect(breadcrumbs([])).to eq([])
+        expect(breadcrumbs([])).to eq([{
+            title: "Home",
+            url: "/",
+          }])
       end
     end
 
@@ -77,6 +87,10 @@ RSpec.describe ApplicationHelper do
 
         expect(helper.breadcrumbs(data)).to eq(
           [
+            {
+              title: "Home",
+              url: "/",
+            },
             {
               title: "Passports, travel and living abroad",
               url: "/browse/abroad",

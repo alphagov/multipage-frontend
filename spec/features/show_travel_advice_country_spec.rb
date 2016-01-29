@@ -74,6 +74,10 @@ describe "Viewing travel advice for albania" do
   it "renders breadcrumbs" do
     expect_component_breadcrumbs([
       {
+        "title" => "Home",
+        "url" => "/"
+      },
+      {
         "title" => "Passports, travel and living abroad",
         "url" => "/browse/abroad",
       },

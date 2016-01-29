@@ -4,7 +4,9 @@ module ApplicationHelper
   end
 
   def breadcrumbs(data=breadcrumbs_data)
-    return [] if data.nil?
+    default_data = [{ title: "Home", url: "/" }]
+
+    return default_data if data.nil?
 
     data = data.sort do |a, b|
       case
@@ -24,7 +26,7 @@ module ApplicationHelper
         0
       end
     end
-    data.map { |d| { title: d[:title], url: d[:base_path] } }
+    default_data + data.map { |d| { title: d[:title], url: d[:base_path] } }
   end
 
   def breadcrumbs_data
