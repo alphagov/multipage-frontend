@@ -35,6 +35,8 @@ private
   end
 
   def ordered_parents
+    return parents if ordered_breadcrumbs.nil? || ordered_breadcrumbs.empty?
+
     ordered_content_ids = ordered_breadcrumbs.map { |bc| bc[:content_id] }
     parents.sort do |a, b|
       ordered_content_ids.index(b[:content_id]) <=> ordered_content_ids.index(a[:content_id])
