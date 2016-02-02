@@ -1,28 +1,33 @@
-<main id="content" role="main" class="group <%= @presenter.parts.any? ? "multi" : "single" %>-page">
-  <%= render partial: "govuk_component/title", locals: { title: @presenter.country.name, context: "Foreign travel advice" } %>
+<%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @presenter.breadcrumbs } %>
 
-  <div class="article-container group">
-    <%= render partial: "travel_advice_navigation" if @presenter.parts.any? %>
+<div class="grid-row">
+  <div id="content" role="main" class="group <%= @presenter.parts.any? ? "multi" : "single" %>-page">
+    <%= render partial: "govuk_component/title", locals: { title: @presenter.country.name, context: "Foreign travel advice" } %>
 
-    <div class="content-block">
-      <div class="inner">
+    <div class="article-container group">
+      <%= render partial: "travel_advice_navigation" if @presenter.parts.any? %>
 
-      <% if @presenter.current_part %>
-        <%= render partial: "govuk_component/title", locals: { title: @presenter.current_part.title, average_length: "long" } %>
+      <div class="content-block">
+        <div class="inner">
 
-        <%= render partial: "govuk_component/govspeak", locals: { content: @presenter.current_part.body } %>
-      <% else %>
-        <%= render partial: "country_summary", locals: {presenter: @presenter} %>
-      <% end %>
+        <% if @presenter.current_part %>
+          <%= render partial: "govuk_component/title", locals: { title: @presenter.current_part.title, average_length: "long" } %>
 
-        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@presenter.country.slug), rel: "nofollow" %></div>
+          <%= render partial: "govuk_component/govspeak", locals: { content: @presenter.current_part.body } %>
+        <% else %>
+          <%= render partial: "country_summary", locals: {presenter: @presenter} %>
+        <% end %>
+
+          <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@presenter.country.slug), rel: "nofollow" %></div>
+        </div>
       </div>
-
     </div>
   </div>
-</main>
 
-<div id="related-items"></div>
+  <div class="related-container">
+    <%= render partial: 'govuk_component/related_items', locals: { sections: @presenter.related_links } %>
+  </div>
+</div>
 
 <% content_for :extra_headers do %>
   <link rel="alternate" type="application/json" href="<%= api_path %>" />

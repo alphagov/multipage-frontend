@@ -3,16 +3,22 @@ require 'slimmer/test_helpers/shared_templates'
 module GovukComponent
   include Slimmer::TestHelpers::SharedTemplates
 
-  def expect_component_title(title)
-    within shared_component_selector("title") do
-      expect(title).to eq(JSON.parse(page.text).fetch("title"))
+  def expect_component(name, key=name, value)
+    within shared_component_selector(name) do
+      expect(JSON.parse(page.text).fetch(key)).to eq(value)
     end
   end
 
-  def expect_component_breadcrumbs(breadcrumbs)
-    within shared_component_selector("breadcrumbs") do
-      expect(breadcrumbs).to eq(JSON.parse(page.text).fetch("breadcrumbs"))
-    end
+  def expect_title(value)
+    expect_component("title", value)
+  end
+
+  def expect_breadcrumbs(value)
+    expect_component("breadcrumbs", value)
+  end
+
+  def expect_related_items(value)
+    expect_component("related_items", "sections", value)
   end
 end
 

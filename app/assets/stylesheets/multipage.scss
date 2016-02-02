@@ -10,17 +10,32 @@ body {
 .grid-row {
   @extend %grid-row;
 
-  main#content {
+  #content {
     @include grid-column( 2/3, $full-width: desktop );
   }
 }
 
-.content-block,
-article {
+.multi-page .govuk-title {
+  padding-top: 7px;
+  padding-bottom: 13px;
+  p {
+    @include core-27($line-height: 1);
+    margin-bottom: 0.25em;
+  }
+}
+
+.content-block {
   h1 {
-    @include bold-24;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
+    @include bold-27;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Negate title component padding and margin */
+  .govuk-title {
+    padding-top: 4px;
+    padding-bottom: 6px;
+    margin-bottom: 0;
   }
 
   header h1 {
@@ -41,14 +56,95 @@ article {
     }
   }
 
-  p {
-    @include core-19;
+  h1 + h2 {
+    margin-top: 0.75em;
+  }
+
+  h2 {
+    @include bold-24;
+    margin: 1.2em 0 0.4em 0;
+  }
+
+  h2 + h3 {
+    margin-top: 0.75em;
+  }
+
+  h3 {
+    @include bold-19;
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+  }
+
+  h3 + h4 {
+    margin-top: 0.75em;
+  }
+
+  h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+  }
+
+  h3 + table {
+    margin-top: 0.652em;
+  }
+
+  h4 + table {
+    margin-top: 0.75em;
+  }
+
+  h2 + p,  h3 + p,  h4 + p,
+  h2 + ol, h3 + ol, h4 + ol,
+  h2 + ul, h3 + ul, h4 + ul {
+    margin-top: 0.2em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $text-colour;
   }
 
   p,
   ul,
   ol {
     margin: 0.75em 0;
+  }
+
+
+  p {
+    @include core-19;
+  }
+
+  p + .help-notice{
+    margin-top: 2em;
+  }
+
+  li {
+    @include core-19;
+    margin: 0.25em 0;
+    padding-left: 0.3em;
+
+    @include media(mobile) {
+      margin-left: 16px;
+      padding-left: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      list-style-position: inside;
+    }
+
+    li {
+      @include core-19;
+      list-style-type: circle;
+    }
+
+    p {
+      @include core-19;
+      margin: 0;
+    }
   }
 
   ul, ol {
@@ -368,5 +464,19 @@ aside .page-navigation-closed {
       position: absolute;
       left: -9999em;
     }
+  }
+}
+
+.related-container {
+  float: left;
+  width: 33.333333%;
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 40px;
+
+  nav {
+    margin-bottom: 1.25em;
   }
 }
