@@ -20,6 +20,7 @@ RSpec.describe Multipage do
         "content_id" => content_id,
         "public_updated_at" => "2015-10-15T11:00:20+01:00",
         "details" => details,
+        "links" => { "parent" => ["cf6c7d60-f28b-4f09-9549-458779aee7c3"] }
       }
     end
     subject { described_class.new(attrs) }
@@ -34,6 +35,7 @@ RSpec.describe Multipage do
       expect(subject.title).to eq(attrs["title"])
       expect(subject.description).to eq(attrs["description"])
       expect(subject.public_updated_at).to eq("2015-10-15T11:00:20+01:00")
+      expect(subject.links).to eq(parent: ["cf6c7d60-f28b-4f09-9549-458779aee7c3"])
     end
 
     it "assigns parts" do

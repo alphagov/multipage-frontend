@@ -10,10 +10,8 @@
   <%= yield :extra_headers %>
 </head>
 <body>
-  <div id="wrapper" class="<%= @presenter.content_class_dasherized %>">
-    <main role="main">
-      <%= yield %>
-    </main>
-  </div>
+  <main id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %>">
+    <%= yield %>
+  </main>
 </body>
 </html>

@@ -13,11 +13,8 @@
   </head>
 
   <body>
-    <div id="global-breadcrumb" class="header-context"></div>
-    <div id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %> guide">
-      <div class="grid-row">
-        <%= yield %>
-      </div>
-    </div>
+    <main id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %> guide">
+      <%= yield %>
+    </main>
   </body>
 </html>
