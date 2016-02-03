@@ -10,10 +10,11 @@
     <!--[if IE 8]><%= stylesheet_link_tag "application-ie8" %><![endif]-->
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-    <main id="wrapper" role="main" class="<%= @presenter.content_class_dasherized %> guide">
-      <%= yield %>
-    </main>
+    <div id="wrapper">
+      <main role="main" id="content" class="<%= yield(:page_class) %>">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
