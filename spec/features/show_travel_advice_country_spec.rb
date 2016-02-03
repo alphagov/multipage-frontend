@@ -165,34 +165,32 @@ describe "Viewing travel advice for albania" do
   end
 
   it "renders related items" do
-    within(".related-container") do
-      expect_related_items([
-        {
-          "title" => "Travel abroad",
-          "url" => "/browse/abroad/travel-abroad",
-          "items" => [
-            {
-              "title" => "Hand luggage restrictions at UK airports",
-              "url" => "/hand-luggage-restrictions"
-            },
-            {
-              "title" => "Driving abroad",
-              "url" => "/driving-abroad"
-            }
-          ]
-        },
-        {
-          "title" => "Passports, travel and living abroad",
-          "url" => "/browse/abroad",
-          "items" => [
-            {
-              "title" => "Renew or replace your adult passport",
-              "url" => "/renew-adult-passport"
-            }
-          ]
-        }
-      ])
-    end
+    expect_related_items([
+      {
+        "title" => "Travel abroad",
+        "url" => "/browse/abroad/travel-abroad",
+        "items" => [
+          {
+            "title" => "Hand luggage restrictions at UK airports",
+            "url" => "/hand-luggage-restrictions"
+          },
+          {
+            "title" => "Driving abroad",
+            "url" => "/driving-abroad"
+          }
+        ]
+      },
+      {
+        "title" => "Passports, travel and living abroad",
+        "url" => "/browse/abroad",
+        "items" => [
+          {
+            "title" => "Renew or replace your adult passport",
+            "url" => "/renew-adult-passport"
+          }
+        ]
+      }
+    ])
   end
 
   it "renders HTML when an unspecific accepts header is requested (eg by IE8 and below)" do
