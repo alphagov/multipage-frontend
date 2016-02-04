@@ -15,7 +15,6 @@ describe "Viewing atom feed for albania" do
         "content_type" => "application/pdf"
       },
       "summary" => "<p>Something about Albania</p>\n",
-      "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
       "change_description" => "Something changed",
       "alert_status" => [],
       "email_signup_link" => "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL",
@@ -34,7 +33,8 @@ describe "Viewing atom feed for albania" do
       "base_path" => "/foreign-travel-advice/albania",
       "title" => "Albania travel advice",
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
-      "details" => details
+      "details" => details,
+      "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
     }
   end
 
@@ -50,7 +50,7 @@ describe "Viewing atom feed for albania" do
 
   it "sets the entry's id to the url concatenated with updated_at" do
     id = page.find("//feed/entry/id").text
-    expect(id).to end_with("/foreign-travel-advice/albania#2015-10-14T12:00:10+01:00")
+    expect(id).to end_with("/foreign-travel-advice/albania#2014-05-14T13:00:06+00:00")
   end
 
   it "sets the entry's title correctly" do
