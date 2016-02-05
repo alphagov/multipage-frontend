@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/foreign-travel-advice/:country_slug/print", variant: :print, to: "travel_advice#show", as: :travel_advice_country_print
   get "/foreign-travel-advice/:country_slug(/:part)", to: "travel_advice#show", as: :travel_advice_country
   get "/:slug/print", variant: :print, to: "multipage#show"
-  get "/:slug(/:part)", to: "multipage#show"
+  get "/:slug(/:part)", to: "multipage#show", constraints: { slug: /[\w_-]+/, format: :html }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
