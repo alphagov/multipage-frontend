@@ -20,6 +20,16 @@ module GovukComponent
   def expect_related_items(value)
     expect_component("related_items", "sections", value)
   end
+
+  def expect_component_metadata_pair(label, value)
+    within shared_component_selector("metadata") do
+      # Flatten top level / "other" args, for consistent hash access
+      component_args = JSON.parse(page.text).tap do |args|
+        args.merge!(args.delete("other"))
+      end
+      expect(component_args.fetch(label)).to eq(value)
+    end
+  end
 end
 
 RSpec.configure do |config|
