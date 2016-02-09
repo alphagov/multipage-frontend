@@ -4,18 +4,22 @@
 <div class="grid-row">
   <div class="column-two-thirds">
     <%= render partial: "govuk_component/title", locals: { title: @presenter.country.name, context: "Foreign travel advice" } %>
-
     <%= render partial: "travel_advice_navigation" if @presenter.parts.any? %>
 
     <% if @presenter.current_part %>
-      <%= render partial: "govuk_component/title", locals: { title: @presenter.current_part.title, average_length: "long" } %>
-
+      <h1 class="part-content-title">
+        <%= @presenter.current_part.title %>
+      </h1>
       <%= render partial: "govuk_component/govspeak", locals: { content: @presenter.current_part.body } %>
     <% else %>
       <%= render partial: "country_summary", locals: {presenter: @presenter} %>
     <% end %>
 
-    <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@presenter.country.slug), rel: "nofollow" %></div>
+    <div class="print-link">
+      <%= link_to t('formats.guide.printer_friendly_page'),
+                  travel_advice_country_print_path(@presenter.country.slug),
+                  rel: "nofollow" %>
+    </div>
   </div>
   <div class="column-third">
     <%= render partial: 'govuk_component/related_items', locals: { sections: @presenter.related_links } %>

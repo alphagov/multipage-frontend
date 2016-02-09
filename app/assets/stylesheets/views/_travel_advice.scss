@@ -91,4 +91,10 @@
     }
   }
 
+  .part-content-title {
+    @include heading-27;
+    font-weight: 700;
+    margin-bottom: $gutter-half;
+  }
+
 }
