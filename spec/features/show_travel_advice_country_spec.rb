@@ -17,7 +17,7 @@ describe "Viewing travel advice for albania" do
       "summary" => "<p>Something about Albania</p>\n",
       "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
       "change_description" => "Something changed",
-      "alert_status" => [],
+      "alert_status" => ["avoid_all_but_essential_travel_to_parts"],
       "email_signup_link" => "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL",
       "updated_at" => "2015-10-14T12:00:10+01:00",
       "reviewed_at" => "2015-10-14T12:00:10+01:00",
@@ -160,6 +160,12 @@ describe "Viewing travel advice for albania" do
     within(".subscriptions") do
       expect(page).to have_link("email", href: "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL")
       expect(page).to have_link("feed", href: "/foreign-travel-advice/albania.atom")
+    end
+  end
+
+  it "renders an alert status" do
+    within(".help-notice") do
+      expect(page).to have_content("advise against all but essential travel")
     end
   end
 

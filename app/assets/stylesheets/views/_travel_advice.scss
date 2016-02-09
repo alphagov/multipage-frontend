@@ -112,4 +112,21 @@
     margin-bottom: $gutter * 1.5;
   }
 
+  .help-notice {
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+    padding-left: 3.5em;
+    padding-top: 0.25em;
+    background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-important-2x.png");
+      background-size: 34px 34px;
+    }
+
+    p {
+      @include bold-19;
+    }
+  }
+
 }
