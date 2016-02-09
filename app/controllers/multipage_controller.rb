@@ -18,8 +18,8 @@ class MultipageController < ApplicationController
     request.variant = :print if params[:variant].to_s == "print"
 
     respond_to do |format|
-      format.atom
       format.html.none
+      format.atom
       format.html.print do
         set_slimmer_headers template: "print"
         render layout: "application.print"

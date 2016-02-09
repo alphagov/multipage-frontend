@@ -194,4 +194,15 @@ describe "Viewing travel advice for albania" do
       ])
     end
   end
+
+  it "renders HTML when an unspecific accepts header is requested (eg by IE8 and below)" do
+    Capybara.current_session.driver.header('Accept', '*/*')
+    visit("/foreign-travel-advice/albania")
+
+    within(".page-navigation") do
+      expect(page).to have_content("Summary")
+      expect(page).to have_link("Part one")
+      expect(page).to have_link("Part two")
+    end
+  end
 end
