@@ -2,7 +2,7 @@
 <%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @presenter.breadcrumbs } %>
 
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="column-two-thirds-desktop">
     <%= render partial: "govuk_component/title", locals: { title: @presenter.country.name, context: "Foreign travel advice" } %>
     <%= render partial: "travel_advice_navigation" if @presenter.parts.any? %>
 
@@ -21,7 +21,7 @@
                   rel: "nofollow" %>
     </div>
   </div>
-  <div class="column-third">
+  <div class="column-one-third-desktop">
     <%= render partial: 'govuk_component/related_items', locals: { sections: @presenter.related_links } %>
   </div>
 </div>
