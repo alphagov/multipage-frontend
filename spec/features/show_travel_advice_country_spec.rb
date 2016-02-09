@@ -137,24 +137,23 @@ describe "Viewing travel advice for albania" do
       expect(page).to have_link("Part two")
     end
 
+    expect_title("Albania")
+    expect_govspeak("<p>Something about Albania</p>\n")
+
     click_link("Part two")
 
+    expect_title("Albania")
     expect(page).to have_current_path("/foreign-travel-advice/albania/part-two")
-
-    within(".travel-advice") do
-      expect(page).to have_css("h1", text: "Part two")
-      expect(page).to have_content("The next bit")
-    end
+    expect(page).to have_css("h1", text: "Part two")
+    expect_govspeak("The next bit")
   end
 
   it "renders the summary with assets" do
-    within(".travel-advice") do
-      expect(page).to have_css("h1", text: "Summary")
-      expect(page).to have_content("Something about Albania")
-      expect(page).to have_css("img[src='https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg']")
-      expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
-      expect(page).to have_link("Print entire guide", href: "/foreign-travel-advice/albania/print")
-    end
+    expect(page).to have_css("h1", text: "Summary")
+    expect_govspeak("<p>Something about Albania</p>\n")
+    expect(page).to have_css("img[src='https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg']")
+    expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
+    expect(page).to have_link("Print entire guide", href: "/foreign-travel-advice/albania/print")
   end
 
   it "renders the subscriptions info" do

@@ -30,4 +30,5 @@
   </p>
   </div>
 <% end %>
-<%= raw presenter.summary %>
+
+<%= render 'govuk_component/govspeak', content: presenter.summary %>

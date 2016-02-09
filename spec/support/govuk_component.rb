@@ -21,6 +21,12 @@ module GovukComponent
     expect_component("related_items", "sections", value)
   end
 
+  def expect_govspeak(content)
+    within shared_component_selector("govspeak") do
+      expect(JSON.parse(page.text).fetch("content")).to eq(content)
+    end
+  end
+
   def expect_component_metadata_pair(label, value)
     within shared_component_selector("metadata") do
       # Flatten top level / "other" args, for consistent hash access
