@@ -15,4 +15,34 @@
     }
   }
 
+  .subscriptions  {
+    @include bold-19;
+
+    ul,
+    li {
+      display: inline;
+    }
+
+    a {
+      text-decoration: none;
+      padding-left: 28px;
+      height: 16px;
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      margin-left: $gutter-half;
+    }
+
+    .feed {
+      background-image: image-url("travel-advice/feed-icon-black.png");
+    }
+
+    .email-alerts {
+      background-image: image-url("travel-advice/mail-icon.png");
+      @include device-pixel-ratio() {
+        background-image: image-url("travel-advice/mail-icon-x2.png");
+        background-size: 20px 14px;
+      }
+    }
+  }
+
 }

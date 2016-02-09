@@ -26,7 +26,7 @@
   </nav>
   <section class="subscriptions">
     <h1 class="visuallyhidden">Subscriptions</h1>
-    <p>Get updates</p>
+    Get updates
     <ul>
       <li><%= link_to "email", @presenter.email_signup_link, class: "email-alerts", title: "Subscribe to email alerts" %></li>
       <li><%= link_to "feed", travel_advice_country_path(@presenter.country.slug, format: :atom), class: "feed", title: "Subscribe via RSS" %></li>
