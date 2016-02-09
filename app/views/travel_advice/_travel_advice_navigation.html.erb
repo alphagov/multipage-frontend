@@ -1,4 +1,4 @@
-<aside>
+<aside class="page-navigation-container" role="complementary">
   <nav role="navigation" class="page-navigation" aria-label="parts to this guide">
     <% @presenter.navigation_parts.each_slice(Part.group_size(@presenter.navigation_parts)).with_index do |parts,i| %>
       <ol<%= " start=\"#{Part.group_size(@presenter.navigation_parts) + 1}\"".html_safe if i == 1 %>>
