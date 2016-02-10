@@ -6,7 +6,7 @@
     other: {
       "Still current at" => Date.today.strftime("%e %B %Y"),
       "Updated" => presenter.last_reviewed_or_updated_at.strftime("%e %B %Y"),
-      "Latest update" => simple_format(presenter.change_description)
+      "Latest update" => simple_format(presenter.latest_update)
     }
 %>
 
