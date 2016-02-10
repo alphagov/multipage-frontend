@@ -1,17 +1,17 @@
 <% if presenter.parts.present? %>
-<header>
-  <h1>Summary</h1>
-</header>
+  <h1 class="part-content-title">Summary</h1>
 <% end %>
 
-<ul class="country-metadata">
-  <li><div class="label">Still current at:</div> <%= Date.today.strftime("%e %B %Y") %></li>
-  <li><div class="label">Updated:</div> <%= presenter.last_reviewed_or_updated_at.strftime("%e %B %Y") %></li>
-  <li><%= simple_format presenter.change_description %></li>
-</ul>
+<%= render 'govuk_component/metadata',
+    other: {
+      "Still current at" => Date.today.strftime("%e %B %Y"),
+      "Updated" => presenter.last_reviewed_or_updated_at.strftime("%e %B %Y"),
+      "Latest update" => simple_format(presenter.latest_update)
+    }
+%>
 
 <% if presenter.alert_status.present? %>
-  <div class="application-notice help-notice">
+  <div class="help-notice">
     <% presenter.alert_status.each do |alert| %>
       <p><%= raw t("travel_advice.alert_status.#{alert}") %></p>
     <% end %>
@@ -30,4 +30,5 @@
   </p>
   </div>
 <% end %>
-<%= raw presenter.summary %>
+
+<%= render 'govuk_component/govspeak', content: presenter.summary %>

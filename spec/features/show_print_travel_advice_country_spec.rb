@@ -54,8 +54,9 @@ describe "Viewing the print page for travel advice Albania" do
 
       within "#summary" do
         expect(page).to have_css("h1", :text => "Summary")
-        expect(page).to have_content("Still current at: #{Date.today.strftime("%e %B %Y")}")
-        expect(page).to have_content("Updated: 14 October 2015")
+        expect_component_metadata_pair('Still current at', Date.today.strftime("%e %B %Y"))
+        expect_component_metadata_pair('Updated', '14 October 2015')
+        expect_component_metadata_pair('Latest update', '<p>Something changed</p>')
 
         expect(page).to have_content("Something about Albania")
       end

@@ -1,14 +1,11 @@
 // The main application stylesheet
-//
+
 // govuk_frontend_toolkit imports
-@import "colours";
-@import "conditionals";
-@import "css3";
 @import "device-pixels";
-@import "grid_layout";
-@import "measurements";
 @import "shims";
 @import "typography";
+@import "measurements";
+@import "colours";
+@import "grid_layout";
 
-@import "multipage";
 @import "views/travel_advice";

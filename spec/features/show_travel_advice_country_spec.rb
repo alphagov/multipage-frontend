@@ -17,7 +17,7 @@ describe "Viewing travel advice for albania" do
       "summary" => "<p>Something about Albania</p>\n",
       "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
       "change_description" => "Something changed",
-      "alert_status" => [],
+      "alert_status" => ["avoid_all_but_essential_travel_to_parts"],
       "email_signup_link" => "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL",
       "updated_at" => "2015-10-14T12:00:10+01:00",
       "reviewed_at" => "2015-10-14T12:00:10+01:00",
@@ -137,24 +137,23 @@ describe "Viewing travel advice for albania" do
       expect(page).to have_link("Part two")
     end
 
+    expect_title("Albania")
+    expect_govspeak("<p>Something about Albania</p>\n")
+
     click_link("Part two")
 
+    expect_title("Albania")
     expect(page).to have_current_path("/foreign-travel-advice/albania/part-two")
-
-    within(".content-block") do
-      expect_title("Part two")
-      expect(page).to have_content("The next bit")
-    end
+    expect(page).to have_css("h1", text: "Part two")
+    expect_govspeak("The next bit")
   end
 
   it "renders the summary with assets" do
-    within(".content-block") do
-      expect(page).to have_css("h1", text: "Summary")
-      expect(page).to have_content("Something about Albania")
-      expect(page).to have_css("img[src='https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg']")
-      expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
-      expect(page).to have_link("Print entire guide", href: "/foreign-travel-advice/albania/print")
-    end
+    expect(page).to have_css("h1", text: "Summary")
+    expect_govspeak("<p>Something about Albania</p>\n")
+    expect(page).to have_css("img[src='https://assets.digital.cabinet-office.gov.uk/media/513a0efbed915d425e000002/120613_Albania_Travel_Advice_WEB_Ed2_jpeg.jpg']")
+    expect(page).to have_link("Download map (PDF)", href: "https://assets.digital.cabinet-office.gov.uk/media/513a0efced915d4261000001/120613_Albania_Travel_Advice_Ed2_pdf.pdf")
+    expect(page).to have_link("Print entire guide", href: "/foreign-travel-advice/albania/print")
   end
 
   it "renders the subscriptions info" do
@@ -164,35 +163,39 @@ describe "Viewing travel advice for albania" do
     end
   end
 
-  it "renders related items" do
-    within(".related-container") do
-      expect_related_items([
-        {
-          "title" => "Travel abroad",
-          "url" => "/browse/abroad/travel-abroad",
-          "items" => [
-            {
-              "title" => "Hand luggage restrictions at UK airports",
-              "url" => "/hand-luggage-restrictions"
-            },
-            {
-              "title" => "Driving abroad",
-              "url" => "/driving-abroad"
-            }
-          ]
-        },
-        {
-          "title" => "Passports, travel and living abroad",
-          "url" => "/browse/abroad",
-          "items" => [
-            {
-              "title" => "Renew or replace your adult passport",
-              "url" => "/renew-adult-passport"
-            }
-          ]
-        }
-      ])
+  it "renders an alert status" do
+    within(".help-notice") do
+      expect(page).to have_content("advise against all but essential travel")
     end
+  end
+
+  it "renders related items" do
+    expect_related_items([
+      {
+        "title" => "Travel abroad",
+        "url" => "/browse/abroad/travel-abroad",
+        "items" => [
+          {
+            "title" => "Hand luggage restrictions at UK airports",
+            "url" => "/hand-luggage-restrictions"
+          },
+          {
+            "title" => "Driving abroad",
+            "url" => "/driving-abroad"
+          }
+        ]
+      },
+      {
+        "title" => "Passports, travel and living abroad",
+        "url" => "/browse/abroad",
+        "items" => [
+          {
+            "title" => "Renew or replace your adult passport",
+            "url" => "/renew-adult-passport"
+          }
+        ]
+      }
+    ])
   end
 
   it "renders HTML when an unspecific accepts header is requested (eg by IE8 and below)" do
