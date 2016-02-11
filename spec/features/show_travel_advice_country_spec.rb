@@ -110,6 +110,10 @@ describe "Viewing travel advice for albania" do
     expect(api_path).to eq("/api/content/foreign-travel-advice/albania")
   end
 
+  it "passes the format to analytics" do
+    expect_analytics("content_item", {"format" => "travel_advice"})
+  end
+
   it "renders breadcrumbs" do
     expect_breadcrumbs([
       {
