@@ -38,6 +38,7 @@ RSpec.describe TravelAdvice do
         "content_id" => content_id,
         "public_updated_at" => "2015-10-15T11:00:20+01:00",
         "details" => details,
+        "format" => "foo",
       }
     end
     subject { described_class.new(attrs) }

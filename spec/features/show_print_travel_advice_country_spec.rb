@@ -34,7 +34,8 @@ describe "Viewing the print page for travel advice Albania" do
       "base_path" => "/foreign-travel-advice/albania",
       "title" => "Albania travel advice",
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
-      "details" => details
+      "details" => details,
+      "format" => "travel_advice",
     }
   end
 

@@ -96,6 +96,7 @@ describe "Viewing travel advice for albania" do
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
       "details" => details,
       "links" => links,
+      "format" => "travel_advice",
     }
   end
 

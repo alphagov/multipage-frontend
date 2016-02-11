@@ -31,6 +31,10 @@ class MultipagePresenter
     RelatedLinksPresenter.new(related_links_data, ordered_breadcrumbs).present
   end
 
+  def format
+    content.format
+  end
+
 private
 
   def breadcrumbs_data
