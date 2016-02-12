@@ -18,7 +18,8 @@ RSpec.describe MultipageController, type: :controller do
         "title" => "Vat rates",
         "description" => "VAT rates for goods and services",
         "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
-        "details" => details
+        "details" => details,
+        "format" => "foo",
       }
     end
 

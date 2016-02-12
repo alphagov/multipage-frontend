@@ -29,7 +29,8 @@ RSpec.describe TravelAdviceController do
       "title" => "Albania travel advice",
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
       "public_updated_at" => "2014-01-01T00:00:00.000+00:00",
-      "details" => details
+      "details" => details,
+      "format" => "travel_advice",
     }
   end
 

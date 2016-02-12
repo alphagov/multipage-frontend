@@ -96,6 +96,7 @@ describe "Viewing travel advice for albania" do
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
       "details" => details,
       "links" => links,
+      "format" => "travel_advice",
     }
   end
 
@@ -107,6 +108,10 @@ describe "Viewing travel advice for albania" do
   it "includes and API url for the content" do
     api_path = page.find("link[rel='alternate'][type='application/json']", visible: false)["href"]
     expect(api_path).to eq("/api/content/foreign-travel-advice/albania")
+  end
+
+  it "passes the format to analytics" do
+    expect_analytics("content_item", {"format" => "travel_advice"})
   end
 
   it "renders breadcrumbs" do

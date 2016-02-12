@@ -35,6 +35,7 @@ describe "Viewing atom feed for albania" do
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
       "details" => details,
       "public_updated_at" => "2014-05-14T13:00:06.000+00:00",
+      "format" => "travel_advice",
     }
   end
 
