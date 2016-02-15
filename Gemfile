@@ -33,6 +33,7 @@ gem "htmlentities"
 # gem "debugger", group: [:development, :test]
 
 group :development, :test do
+  gem "govuk-lint"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
