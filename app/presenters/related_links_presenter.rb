@@ -1,6 +1,5 @@
 class RelatedLinksPresenter
-
-  def initialize(related_links, ordered_breadcrumbs=[])
+  def initialize(related_links, ordered_breadcrumbs = [])
     @related_links = related_links
     @ordered_breadcrumbs = ordered_breadcrumbs
   end
@@ -55,6 +54,4 @@ private
 
     hash
   end
-
-
 end

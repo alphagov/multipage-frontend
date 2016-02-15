@@ -9,7 +9,7 @@ gem "uglifier", ">= 1.3.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.0"
 # bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc",        group: :doc
+gem "sdoc", group: :doc
 
 gem "airbrake", "4.2.1"
 gem "gds-api-adapters", "26.6.0"

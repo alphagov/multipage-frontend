@@ -16,7 +16,7 @@ private
   def error_404; error 404; end
 
   def error(status_code, exception = nil)
-    if exception and defined? Airbrake
+    if exception && defined? Airbrake
       env["airbrake.error_id"] = notify_airbrake(exception)
     end
     render status: status_code, text: "#{status_code} error"

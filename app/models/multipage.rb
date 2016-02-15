@@ -1,9 +1,8 @@
 class Multipage
-
   attr_reader :current_part, :parts, :content_id, :base_path, :title,
               :links, :description, :public_updated_at, :updated_at, :format
 
-  def initialize(attrs, part_slug=nil)
+  def initialize(attrs, part_slug = nil)
     attrs = attrs.deep_symbolize_keys
     @content_id = attrs.fetch(:content_id)
     @base_path = attrs.fetch(:base_path)
@@ -23,7 +22,7 @@ class Multipage
   end
 
   def has_part?(slug)
-    parts.find{ |p| p.slug == slug }.present?
+    parts.find { |p| p.slug == slug }.present?
   end
 
   def previous_part
@@ -50,7 +49,7 @@ private
   def assign_current_part(part_slug)
     return unless part_slug
     return unless parts.any?
-    @current_part = parts.find{ |part| part.slug == part_slug }
+    @current_part = parts.find { |part| part.slug == part_slug }
   end
 end
 
@@ -65,7 +64,7 @@ class Part
 
   # TODO: Presenter method?
   def self.group_size(parts)
-    size = parts.length.to_f/2
+    size = parts.length.to_f / 2
     if size < 2
       3
     else

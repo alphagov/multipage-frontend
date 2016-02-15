@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/healthcheck", :to => proc { [200, {}, ["OK"]] }
+  get "/healthcheck", to: proc { [200, {}, ["OK"]] }
 
   get "/foreign-travel-advice/:country_slug/print", variant: :print, to: "travel_advice#show", as: :travel_advice_country_print
   get "/foreign-travel-advice/:country_slug(/:part)", to: "travel_advice#show", as: :travel_advice_country

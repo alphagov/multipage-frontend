@@ -25,8 +25,8 @@ RSpec.describe TravelAdvice do
         "updated_at" => "2015-10-14T12:00:10+01:00",
         "reviewed_at" => "2015-10-14T12:00:10+01:00",
         "parts" => [
-          {"title" => "Part one", "slug" => "part-one", "body" => "A new beginning"},
-          {"title" => "Part two", "slug" => "part-two", "body" => "The next bit"},
+          { "title" => "Part one", "slug" => "part-one", "body" => "A new beginning" },
+          { "title" => "Part two", "slug" => "part-two", "body" => "The next bit" },
         ]
       }
     end
