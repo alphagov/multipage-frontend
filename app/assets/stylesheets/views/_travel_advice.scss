@@ -13,12 +13,12 @@
 
   // Should live in static
   .column-one-third-desktop {
-    @include grid-column( 1/3, $full-width: 'desktop');
+    @include grid-column(1 / 3, $full-width: 'desktop');
   }
 
   // Should live in static
   .column-two-thirds-desktop {
-    @include grid-column( 2/3, $full-width: 'desktop');
+    @include grid-column(2 / 3, $full-width: 'desktop');
   }
 
   .print-link {
@@ -82,7 +82,7 @@
     }
   }
 
-  .subscriptions  {
+  .subscriptions {
     @include bold-19;
 
     ul,
@@ -105,6 +105,7 @@
 
     .email-alerts {
       background-image: image-url("travel-advice/mail-icon.png");
+
       @include device-pixel-ratio() {
         background-image: image-url("travel-advice/mail-icon-x2.png");
         background-size: 20px 14px;
