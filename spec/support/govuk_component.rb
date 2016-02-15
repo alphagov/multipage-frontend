@@ -3,7 +3,7 @@ require 'slimmer/test_helpers/shared_templates'
 module GovukComponent
   include Slimmer::TestHelpers::SharedTemplates
 
-  def expect_component(name, key = name, value)
+  def expect_component(name, value, key = name)
     within shared_component_selector(name) do
       expect(JSON.parse(page.text).fetch(key)).to eq(value)
     end
@@ -18,7 +18,7 @@ module GovukComponent
   end
 
   def expect_related_items(value)
-    expect_component("related_items", "sections", value)
+    expect_component("related_items", value, "sections")
   end
 
   def expect_analytics(key, value)
