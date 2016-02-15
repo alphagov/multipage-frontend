@@ -63,4 +63,9 @@ describe "Viewing atom feed for albania" do
     summary = page.find("//feed/entry/summary").text
     expect(summary).to eq("Something changed")
   end
+
+  it "sets the entry's updated correctly" do
+    updated = page.find("//feed/entry/updated").text
+    expect(updated).to eq("2014-05-14T13:00:06+00:00")
+  end
 end
