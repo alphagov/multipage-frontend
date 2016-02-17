@@ -64,7 +64,7 @@ RSpec.describe BreadcrumbsPresenter do
             content_id:  "08d48cdd-6b50-43ff-a53b-beab47f4aab0",
             base_path:  "/foreign-travel-advice",
             title: "Foreign travel advice",
-            links: { },
+            links: {},
           },
           {
             content_id: "86eb717a-fb40-42e7-83fa-d031a03880fb",

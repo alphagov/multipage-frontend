@@ -38,8 +38,8 @@ RSpec.describe MultipageController, type: :controller do
     context "for an existing content item with parts" do
       before do
         details.merge!("parts" => [
-          {"slug" => "information", "title" => "Information", "body" => "Body..."},
-          {"slug" => "current-rates", "title" => "Current rates", "body" => "Body..."},
+          { "slug" => "information", "title" => "Information", "body" => "Body..." },
+          { "slug" => "current-rates", "title" => "Current rates", "body" => "Body..." },
         ])
         content_store_has_item("/vat-rates", content_item_attrs)
       end

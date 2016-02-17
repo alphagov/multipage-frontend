@@ -1,5 +1,4 @@
 class BreadcrumbsPresenter
-
   def initialize(breadcrumbs)
     @breadcrumbs = breadcrumbs
   end

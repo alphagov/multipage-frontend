@@ -7,8 +7,8 @@ RSpec.describe Multipage do
       {
         "updated_at" => "2015-10-15T11:00:20+01:00",
         "parts" => [
-          {"title" => "Part one", "slug" => "part-one", "body" => "A new beginning"},
-          {"title" => "Part two", "slug" => "part-two", "body" => "The next bit"},
+          { "title" => "Part one", "slug" => "part-one", "body" => "A new beginning" },
+          { "title" => "Part two", "slug" => "part-two", "body" => "The next bit" },
         ]
       }
     end

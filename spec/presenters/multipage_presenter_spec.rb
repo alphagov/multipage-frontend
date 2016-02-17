@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe MultipagePresenter do
-
   let(:multipage) {
     json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice', 'full-country')
     content_item = JSON.parse(json)
@@ -47,10 +46,10 @@ RSpec.describe MultipagePresenter do
               title: "Driving abroad",
               url: "/driving-abroad"
             },
-            {
-              title: "Hand luggage restrictions at UK airports",
-              url: "/hand-luggage-restrictions",
-            },
+           {
+             title: "Hand luggage restrictions at UK airports",
+             url: "/hand-luggage-restrictions",
+           },
           ]
         },
         {

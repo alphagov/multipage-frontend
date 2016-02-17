@@ -1,9 +1,8 @@
 class TravelAdvice < Multipage
-
   attr_reader :country, :image, :document, :summary, :change_description,
               :alert_status, :email_signup_link, :reviewed_at
 
-  def initialize(attrs, part_slug=nil)
+  def initialize(attrs, part_slug = nil)
     super
 
     attrs = attrs.deep_symbolize_keys
@@ -19,6 +18,7 @@ class TravelAdvice < Multipage
   end
 
 private
+
   def assign_country(details)
     country_attrs = details.fetch(:country)
     @country = Country.new(country_attrs)

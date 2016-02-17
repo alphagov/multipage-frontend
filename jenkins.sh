@@ -42,6 +42,16 @@ git clone git@github.com:alphagov/govuk-content-schemas.git tmp/govuk-content-sc
 export RAILS_ENV=test
 bundle install --path "${HOME}/bundles/${JOB_NAME}" --deployment --without development
 
+if [[ ${GIT_BRANCH} != "origin/master" ]]; then
+  bundle exec govuk-lint-ruby \
+    --diff \
+    --format html --out rubocop-${GIT_COMMIT}.html \
+    --format clang \
+    Gemfile app test config
+
+  bundle exec govuk-lint-sass app
+fi
+
 GOVUK_CONTENT_SCHEMAS_PATH=tmp/govuk-content-schemas bundle exec rake ${TEST_TASK:-"default"};
 
 export EXIT_STATUS=$?

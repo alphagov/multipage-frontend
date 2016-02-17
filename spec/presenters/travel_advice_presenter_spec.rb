@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe TravelAdvicePresenter do
-
   describe "latest_update" do
     it "avoids duplication of 'Latest update' from change description" do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice', 'full-country')
@@ -26,5 +25,4 @@ RSpec.describe TravelAdvicePresenter do
     presenter = TravelAdvicePresenter.new(travel_advice, nil)
     presenter.latest_update
   end
-
 end
