@@ -1,9 +1,16 @@
+require "memory_profiler"
+
 class MultipageController < ApplicationController
   def show
     content_item_response = content_store.content_item(base_path)
-    content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
+
+    report = MemoryProfiler.report do
+      content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
+    end
+    report.pretty_print
 
     if content.present?
+
       @presenter = presenter_class.new(content, self)
 
       if params[:part] && !content.has_part?(params[:part])
@@ -39,5 +46,11 @@ private
 
   def base_path
     "/#{params[:slug]}"
+  end
+
+  def memory_profile_path
+    profile_path = Rails.root.join("tmp", "profile")
+    FileUtils.mkdir_p(profile_path) unless profile_path.exist?
+    Rails.root.join("tmp", "profile", "#{Time.zone.now.to_i}#{request.fullpath.split("/").join("-")}.log")
   end
 end

@@ -20,6 +20,8 @@ gem "slimmer", "9.0.1"
 gem "unicorn", "5.0.1"
 gem "htmlentities"
 
+gem "memory_profiler", "0.9.6"
+
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
