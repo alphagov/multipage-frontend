@@ -21,6 +21,9 @@ gem "slimmer", "9.6.0"
 gem "unicorn", "5.0.1"
 gem "htmlentities"
 
+gem "allocation_tracer"
+gem "gc_tracer"
+
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 

@@ -43,6 +43,7 @@ GEM
     airbrake (5.5.0)
       airbrake-ruby (~> 1.5)
     airbrake-ruby (1.5.0)
+    allocation_tracer (0.6.3)
     arel (7.1.4)
     ast (2.3.0)
     better_errors (2.1.1)
@@ -70,6 +71,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    gc_tracer (1.5.1)
     gds-api-adapters (37.5.1)
       link_header
       lrucache (~> 0.1.1)
@@ -267,9 +269,11 @@ PLATFORMS
 DEPENDENCIES
   airbrake (~> 5.5)
   airbrake-ruby (= 1.5)
+  allocation_tracer
   better_errors
   binding_of_caller
   capybara (= 2.5.0)
+  gc_tracer
   gds-api-adapters (= 37.5.1)
   govuk-content-schema-test-helpers
   govuk-lint
@@ -294,4 +298,4 @@ DEPENDENCIES
   webmock (= 1.21.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
