@@ -12,7 +12,7 @@ RSpec.describe TravelAdviceController do
       "summary" => "<p>Something about Albania</p>\n",
       "change_description" => "Something changed",
       "alert_status" => [],
-      "email_signup_link" => "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL",
+      "email_signup_link" => "/foreign-travel-advice/albania/email-signup",
       "updated_at" => "2015-10-14T12:00:10+01:00",
       "reviewed_at" => "2015-10-14T12:00:10+01:00",
       "parts" => [
