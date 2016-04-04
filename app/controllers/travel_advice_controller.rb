@@ -1,6 +1,6 @@
 class TravelAdviceController < MultipageController
   def show
-    expires_in(10.seconds, public: true)
+    expires_in(5.minutes, public: true)
     super
   end
 
