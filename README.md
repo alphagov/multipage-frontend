@@ -17,12 +17,12 @@ This is a Ruby on Rails application that renders content items from the  [conten
 ### Dependencies
 
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides content items as JSON
+- [alphagov/slimmer](https://github.com/alphagov/slimmer) - provides common frontend componentry
+- [alphagov/static](https://github.com/alphagov/static) - provides common assets
 
 ### Running the application
 
 `./startup.sh`
-
-Documentation for where the app will appear (default port, vhost, URL etc).
 
 ### Running the test suite
 
