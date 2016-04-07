@@ -22,8 +22,6 @@ This is a Ruby on Rails application that renders content items from the  [conten
 
 `./startup.sh`
 
-Documentation for where the app will appear (default port, vhost, URL etc).
-
 ### Running the test suite
 
 `bundle exec rake`
