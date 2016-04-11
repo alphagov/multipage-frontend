@@ -2,13 +2,16 @@
   <h1 class="part-content-title">Summary</h1>
 <% end %>
 
-<%= render 'govuk_component/metadata',
-    other: {
-      "Still current at" => Date.today.strftime("%e %B %Y"),
-      "Updated" => presenter.last_reviewed_or_updated_at.strftime("%e %B %Y"),
-      "Latest update" => simple_format(presenter.latest_update)
-    }
+<%
+  metadata = {
+    "Still current at" => Date.today.strftime("%e %B %Y"),
+    "Updated" => presenter.last_reviewed_or_updated_at.strftime("%e %B %Y"),
+  }
+
+  metadata["Latest update"] = simple_format(presenter.latest_update) if presenter.latest_update
 %>
+
+<%= render 'govuk_component/metadata', other: metadata %>
 
 <% if presenter.alert_status.present? %>
   <div class="help-notice">

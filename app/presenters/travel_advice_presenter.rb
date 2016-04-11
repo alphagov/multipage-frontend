@@ -45,6 +45,7 @@ class TravelAdvicePresenter < MultipagePresenter
   # has a latest update label, so we can strip this out.
   # Avoids: "Latest update: Latest update - …"
   def latest_update
+    return nil unless change_description.present?
     change_description.sub(/^Latest update:?\s-?\s?/i, '').tap do |latest|
       latest[0] = latest[0].capitalize
     end
