@@ -11,7 +11,6 @@ RSpec.describe TravelAdvicePresenter do
         { original: "Latest update - changes", presented: "Changes" },
         { original: "Latest update changes", presented: "Changes" },
         { original: "Latest Update: Summary of changes. Next sentence", presented: "Summary of changes. Next sentence" },
-        { original: nil, presented: nil },
       ].each do |i|
         expect(present_latest(i[:original])).to eq(i[:presented])
       end
