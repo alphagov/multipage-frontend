@@ -65,6 +65,26 @@ RSpec.describe RelatedLinksPresenter do
       end
     end
 
+    context "when parent links are incomplete" do
+      let(:related_links) {
+        content_item[:links][:related].reject { |i| i[:title] == "Travel abroad" }
+      }
+      it "excludes that parent" do
+        expect(subject.present).to eq([
+          {
+            title: "Passports, travel and living abroad",
+            url: "/browse/abroad",
+            items: [
+              {
+                title: "Renew or replace your adult passport",
+                url: "/renew-adult-passport"
+              }
+            ]
+          }
+        ])
+      end
+    end
+
     context "with no breadcrumbs data to use for ordering" do
       let(:breadcrumbs) { [] }
 
