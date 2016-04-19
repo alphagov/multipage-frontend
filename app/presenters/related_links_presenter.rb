@@ -29,7 +29,7 @@ private
 
     children.each do |child|
       parent = parents.find { |p| p[:content_id] == child[:links][:parent].first }
-      parent[:children] << child
+      parent[:children] << child if parent
     end
   end
 
