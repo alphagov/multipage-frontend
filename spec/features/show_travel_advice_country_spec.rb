@@ -24,7 +24,8 @@ describe "Viewing travel advice for albania" do
       "parts" => [
         { "title" => "Part one", "slug" => "part-one", "body" => "A new beginning" },
         { "title" => "Part two", "slug" => "part-two", "body" => "The next bit" },
-      ]
+      ],
+      "publishing_request_id": "76435-3285345345-345435345-4354"
     }
   end
 
@@ -212,5 +213,11 @@ describe "Viewing travel advice for albania" do
       expect(page).to have_link("Part one")
       expect(page).to have_link("Part two")
     end
+  end
+
+  it "renders the publishing_request_id as a data attribute" do
+    visit "/foreign-travel-advice/albania"
+
+    expect(page).to have_css("meta[name='govuk:publishing-request-id'][content='76435-3285345345-345435345-4354']", visible: false)
   end
 end

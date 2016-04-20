@@ -35,6 +35,10 @@ class MultipagePresenter
     content.format
   end
 
+  def publishing_request_id
+    content.publishing_request_id
+  end
+
 private
 
   def breadcrumbs_data

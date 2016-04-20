@@ -1,4 +1,7 @@
 <%= content_for :page_class, @presenter.content_class_dasherized %>
+<% content_for :extra_headers do %>
+  <meta name="govuk:publishing-request-id" content="<%= @presenter.publishing_request_id %>">
+<% end %>
 <%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @presenter.breadcrumbs } %>
 
 <div class="grid-row">
