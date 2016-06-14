@@ -40,6 +40,8 @@ group :development, :test do
   gem "rspec-rails", "3.4.0"
   gem "simplecov", "0.10.0", require: false
   gem "simplecov-rcov", "0.2.3", require: false
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
