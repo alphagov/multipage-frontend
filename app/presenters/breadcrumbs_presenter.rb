@@ -24,17 +24,19 @@ class BreadcrumbsPresenter
 
     breadcrumbs.sort do |a, b|
       case
-      when !b[:links] && a[:links]
+      when a[:links] && !b[:links]
         1
       when !a[:links] && b[:links]
         -1
-      when b[:links].empty? && a[:links].key?(:parent)
+      when a[:links].key?(:parent) && b[:links].empty?
         1
       when a[:links].empty? && b[:links].key?(:parent)
         -1
+      when a[:links].empty? && b[:links].empty?
+        0
       when a[:links][:parent].first == b[:content_id]
         1
-      when b[:links][:parent].first == a[:content_id]
+      when a[:content_id] == b[:links][:parent].first
         -1
       else
         0

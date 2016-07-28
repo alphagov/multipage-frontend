@@ -17,7 +17,7 @@ private
   attr_reader :related_links, :ordered_breadcrumbs
 
   def parents
-    related_links.select { |item| !item.key?(:links) || item[:links].empty? }
+    related_links.reject {|item| item.fetch(:links, {}).key?(:parent) }
   end
 
   def children
@@ -28,9 +28,15 @@ private
     parents.each { |parent| parent[:children] = [] }
 
     children.each do |child|
-      parent = parents.find { |p| p[:content_id] == child[:links][:parent].first }
+      parent = parents.find do |p|
+        parent = child[:links][:parent].first
+        key = parent.is_a?(Hash) ? parent[:content_id] : parent
+        p[:content_id] == key
+      end
       parent[:children] << child if parent
     end
+
+    parents.map {|parent| parent[:children].sort_by! {|child| child[:title]} }
   end
 
   def ordered_parents
@@ -38,7 +44,7 @@ private
 
     ordered_content_ids = ordered_breadcrumbs.map { |bc| bc[:content_id] }
     parents.sort do |a, b|
-      ordered_content_ids.index(b[:content_id]) <=> ordered_content_ids.index(a[:content_id])
+      ordered_content_ids.index(b[:content_id]).to_i <=> ordered_content_ids.index(a[:content_id]).to_i
     end
   end
 
