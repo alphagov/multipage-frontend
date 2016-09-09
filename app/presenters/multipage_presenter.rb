@@ -23,12 +23,11 @@ class MultipagePresenter
   end
 
   def breadcrumbs
-    BreadcrumbsPresenter.new(breadcrumbs_data).present
+    RelatedLinksPresenter.new.breadcrumbs
   end
 
   def related_links
-    ordered_breadcrumbs = BreadcrumbsPresenter.ordered_breadcrumbs(breadcrumbs_data)
-    RelatedLinksPresenter.new(related_links_data, ordered_breadcrumbs).present
+    RelatedLinksPresenter.new.related_links
   end
 
   def format
@@ -37,15 +36,5 @@ class MultipagePresenter
 
   def publishing_request_id
     content.publishing_request_id
-  end
-
-private
-
-  def breadcrumbs_data
-    links[:parent] if links.present? && links.any?
-  end
-
-  def related_links_data
-    links[:related] if links.present? && links.any?
   end
 end
