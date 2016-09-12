@@ -182,12 +182,12 @@ describe "Viewing travel advice for albania" do
         "url" => "/browse/abroad/travel-abroad",
         "items" => [
           {
-            "title" => "Hand luggage restrictions at UK airports",
-            "url" => "/hand-luggage-restrictions"
-          },
-          {
             "title" => "Driving abroad",
             "url" => "/driving-abroad"
+          },
+          {
+            "title" => "Hand luggage restrictions at UK airports",
+            "url" => "/hand-luggage-restrictions"
           }
         ]
       },
