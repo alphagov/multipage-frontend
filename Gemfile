@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.2.5.2"
+gem "rails", "5.0.0.1"
 # Use SCSS for stylesheets
-gem "sass-rails", "5.0.4"
+gem "sass-rails", "~> 5.0.4"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,7 +37,7 @@ group :development, :test do
   gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "rspec-rails", "3.4.0"
+  gem "rspec-rails", "~> 3.5"
   gem "simplecov", "0.10.0", require: false
   gem "simplecov-rcov", "0.2.3", require: false
   gem 'better_errors'
