@@ -11,7 +11,8 @@ gem "jbuilder", "~> 2.0"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", group: :doc
 
-gem "airbrake", "4.2.1"
+gem 'airbrake', '~> 5.5'
+gem 'airbrake-ruby', '1.5'
 gem "gds-api-adapters", "26.6.0"
 gem "govuk_frontend_toolkit", "2.0.1"
 gem "logstasher", "0.6.2"
