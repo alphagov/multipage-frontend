@@ -1,17 +1,14 @@
 class MultipageController < ApplicationController
+  rescue_from GdsApi::HTTPNotFound, with: :error_404
+
   def show
     content_item_response = content_store.content_item(base_path)
     content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
 
-    if content.present?
-      @presenter = presenter_class.new(content, self)
+    @presenter = presenter_class.new(content, self)
 
-      if params[:part] && !content.has_part?(params[:part])
-        redirect_to base_path
-        return
-      end
-    else
-      error_404
+    if params[:part] && !content.has_part?(params[:part])
+      redirect_to base_path
       return
     end
 

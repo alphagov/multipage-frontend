@@ -13,7 +13,7 @@ gem "sdoc", group: :doc
 
 gem 'airbrake', '~> 5.5'
 gem 'airbrake-ruby', '1.5'
-gem "gds-api-adapters", "26.6.0"
+gem "gds-api-adapters", "37.5.1"
 gem "govuk_frontend_toolkit", "2.0.1"
 gem "logstasher", "0.6.2"
 gem "plek", "1.11.0"
