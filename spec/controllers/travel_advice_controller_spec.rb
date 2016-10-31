@@ -40,13 +40,13 @@ RSpec.describe TravelAdviceController do
     end
 
     it "renders an atom feed for the content item" do
-      get :show, country_slug: "albania", format: "atom"
+      get :show, params: { country_slug: "albania" }, format: "atom"
 
       expect(response).to be_successful
     end
 
     it "redirects to the base country path when an invalid part is requested" do
-      get :show, country_slug: "albania", part: "tundra"
+      get :show, params: { country_slug: "albania", part: "tundra" }
 
       expect(response).to redirect_to("/foreign-travel-advice/albania")
       expect(assigns(:presenter).content).to be

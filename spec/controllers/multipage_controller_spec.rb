@@ -29,7 +29,7 @@ RSpec.describe MultipageController, type: :controller do
       end
 
       it "renders the content item" do
-        get :show, slug: "vat-rates"
+        get :show, params: { slug: "vat-rates" }
 
         expect(response).to be_successful
       end
@@ -45,7 +45,7 @@ RSpec.describe MultipageController, type: :controller do
       end
 
       it "responds successfully when the base content item is requested" do
-        get :show, slug: "vat-rates"
+        get :show, params: { slug: "vat-rates" }
 
         expect(response).to be_successful
         expect(assigns(:presenter).content).to be
@@ -53,7 +53,7 @@ RSpec.describe MultipageController, type: :controller do
       end
 
       it "responds successfully when a part is requested" do
-        get :show, slug: "vat-rates", part: "current-rates"
+        get :show, params: { slug: "vat-rates", part: "current-rates" }
 
         expect(response).to be_successful
         expect(assigns(:presenter).content).to be
@@ -61,7 +61,7 @@ RSpec.describe MultipageController, type: :controller do
       end
 
       it "redirects to the base path when an invalid part is requested" do
-        get :show, slug: "vat-rates", part: "current-rateses"
+        get :show, params: { slug: "vat-rates", part: "current-rateses" }
 
         expect(response).to redirect_to("/vat-rates")
         expect(assigns(:presenter).content).to be
@@ -75,7 +75,7 @@ RSpec.describe MultipageController, type: :controller do
       end
 
       it "responds with 404" do
-        get :show, slug: "cat-rates"
+        get :show, params: { slug: "cat-rates" }
 
         expect(response.status).to eq(404)
       end
@@ -85,7 +85,7 @@ RSpec.describe MultipageController, type: :controller do
       before do
         content_store_has_item("/vat-rates", content_item_attrs)
 
-        get :show, slug: "vat-rates", variant: :print
+        get :show, params: { slug: "vat-rates", variant: :print }
       end
 
       it "is successful" do

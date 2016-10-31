@@ -48,4 +48,5 @@ group :test do
   gem "capybara", "2.5.0"
   gem "webmock", "1.21.0"
   gem 'govuk-content-schema-test-helpers'
+  gem 'rails-controller-testing'
 end
