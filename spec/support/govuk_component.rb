@@ -1,4 +1,5 @@
 require 'slimmer/test_helpers/shared_templates'
+require 'slimmer/rspec'
 
 module GovukComponent
   include Slimmer::TestHelpers::SharedTemplates
