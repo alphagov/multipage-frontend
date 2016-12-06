@@ -35,7 +35,6 @@ describe "Viewing the print page for travel advice Albania" do
       "title" => "Albania travel advice",
       "description" => "Latest travel advice for Albania including safety and security, entry requirements, travel warnings and health",
       "details" => details,
-      "format" => "travel_advice",
     }
   end
 

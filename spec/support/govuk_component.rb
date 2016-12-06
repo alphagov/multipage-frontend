@@ -22,12 +22,6 @@ module GovukComponent
     expect_component("related_items", value, "sections")
   end
 
-  def expect_analytics(key, value)
-    within shared_component_selector("analytics_meta_tags"), visible: false do
-      expect(JSON.parse(page.text(:all)).fetch(key)).to eq(value)
-    end
-  end
-
   def expect_govspeak(content)
     within shared_component_selector("govspeak") do
       expect(JSON.parse(page.text).fetch("content")).to eq(content)

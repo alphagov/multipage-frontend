@@ -9,7 +9,6 @@ RSpec.describe "show multipage" do
     "details": {
       "updated_at": "2015-10-14T12:00:10+01:00",
     },
-    "format": "guide",
   }}
   before do
     content_store_has_item("/vat-rates", content_item)

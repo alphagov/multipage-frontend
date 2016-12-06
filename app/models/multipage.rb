@@ -1,7 +1,7 @@
 class Multipage
   attr_reader :current_part, :parts, :content_id, :base_path, :title,
               :links, :description, :public_updated_at, :updated_at,
-              :format, :publishing_request_id
+              :publishing_request_id
 
   def initialize(attrs, part_slug = nil)
     attrs = attrs.deep_symbolize_keys
@@ -10,7 +10,6 @@ class Multipage
     @title = attrs.fetch(:title)
     @description = attrs.fetch(:description)
     @links = attrs[:links]
-    @format = attrs.fetch(:format)
 
     if attrs[:public_updated_at]
       @public_updated_at = DateTime.parse(attrs[:public_updated_at])
