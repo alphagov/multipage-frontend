@@ -5,7 +5,8 @@ class MultipageController < ApplicationController
     content_item_response = content_store.content_item(base_path)
     content = model_class.new(content_item_response.to_hash, params[:part]) if content_item_response
     @content_item = content_item_response.to_hash
-    @presenter = presenter_class.new(content, self)
+    navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+    @presenter = presenter_class.new(content, navigation_helpers, self)
 
     if params[:part] && !content.has_part?(params[:part])
       redirect_to base_path

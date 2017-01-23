@@ -21,8 +21,9 @@ RSpec.describe TravelAdvicePresenter do
 
   def present_latest(latest)
     @content_item["details"]["change_description"] = latest
+    navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
     travel_advice = TravelAdvice.new(@content_item)
-    presenter = TravelAdvicePresenter.new(travel_advice, nil)
+    presenter = TravelAdvicePresenter.new(travel_advice, navigation_helpers, nil)
     presenter.latest_update
   end
 end

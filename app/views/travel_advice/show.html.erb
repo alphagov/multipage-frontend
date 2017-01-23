@@ -2,7 +2,7 @@
 <% content_for :extra_headers do %>
   <meta name="govuk:publishing-request-id" content="<%= @presenter.publishing_request_id %>">
 <% end %>
-<%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @presenter.breadcrumbs } %>
+<%= render partial: 'govuk_component/breadcrumbs', locals: @presenter.breadcrumbs %>
 
 <div class="grid-row">
   <div class="column-two-thirds-desktop">
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="column-one-third-desktop related-items-container">
-    <%= render partial: 'govuk_component/related_items', locals: { sections: @presenter.related_links } %>
+    <%= render partial: 'govuk_component/related_items', locals: @presenter.related_items %>
   </div>
 </div>
 

@@ -11,10 +11,11 @@ class MultipagePresenter
     :updated_at,
     :links
 
-  attr_accessor :content, :controller
+  attr_accessor :content, :navigation_helpers, :controller
 
-  def initialize(content, controller)
+  def initialize(content, navigation_helpers, controller)
     self.content = content
+    self.navigation_helpers = navigation_helpers
     self.controller = controller
   end
 
@@ -23,11 +24,11 @@ class MultipagePresenter
   end
 
   def breadcrumbs
-    RelatedLinksPresenter.new.breadcrumbs
+    navigation_helpers.breadcrumbs
   end
 
-  def related_links
-    RelatedLinksPresenter.new.related_links
+  def related_items
+    navigation_helpers.related_items
   end
 
   def format

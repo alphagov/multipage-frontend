@@ -1,8 +1,8 @@
-require 'slimmer/test_helpers/shared_templates'
+require 'slimmer/test_helpers/govuk_components'
 require 'slimmer/rspec'
 
 module GovukComponent
-  include Slimmer::TestHelpers::SharedTemplates
+  include Slimmer::TestHelpers::GovukComponents
 
   def expect_component(name, value, key = name)
     within shared_component_selector(name) do
@@ -12,14 +12,6 @@ module GovukComponent
 
   def expect_title(value)
     expect_component("title", value)
-  end
-
-  def expect_breadcrumbs(value)
-    expect_component("breadcrumbs", value)
-  end
-
-  def expect_related_items(value)
-    expect_component("related_items", value, "sections")
   end
 
   def expect_govspeak(content)
