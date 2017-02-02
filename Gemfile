@@ -15,9 +15,10 @@ gem 'airbrake', '~> 5.5'
 gem 'airbrake-ruby', '1.5'
 gem "gds-api-adapters", "37.5.1"
 gem "govuk_frontend_toolkit", "2.0.1"
+gem "govuk_navigation_helpers", "2.1.0"
 gem "logstasher", "0.6.2"
 gem "plek", "1.11.0"
-gem "slimmer", "9.6.0"
+gem "slimmer", "10.0.0"
 gem "unicorn", "5.0.1"
 gem "htmlentities"
 

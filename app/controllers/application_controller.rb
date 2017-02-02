@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
-  include Slimmer::SharedTemplates
+  include Slimmer::GovukComponents
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
