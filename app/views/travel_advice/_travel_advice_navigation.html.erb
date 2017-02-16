@@ -25,11 +25,10 @@
     <% end %>
   </nav>
   <section class="subscriptions">
-    <h1 class="visuallyhidden">Subscriptions</h1>
-    Get updates
+    <h2 class="visuallyhidden">Subscriptions</h2>
     <ul>
-      <li><%= link_to "email", @presenter.email_signup_link, class: "email-alerts", title: "Subscribe to email alerts" %></li>
-      <li><%= link_to "feed", travel_advice_country_path(@presenter.country.slug, format: :atom), class: "feed", title: "Subscribe via RSS" %></li>
+      <li><%= link_to "Get email alerts", @presenter.email_signup_link, class: "email-alerts" %></li>
+      <li><%= link_to "Subscribe to feed", travel_advice_country_path(@presenter.country.slug, format: :atom), class: "feed" %></li>
     </ul>
   </section>
 </aside>
