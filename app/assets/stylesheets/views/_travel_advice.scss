@@ -38,7 +38,6 @@
 
   .page-navigation-container {
     border-bottom: 1px solid $grey-2;
-    padding-bottom: $gutter-half;
     margin-bottom: $gutter;
   }
 
@@ -87,34 +86,25 @@
 
     ul {
       list-style: none;
+      margin-left: -$gutter-half / 2;
+      margin-right: -$gutter-half / 2;
     }
 
-    li:first-child {
-      margin-bottom: $gutter / 3;
+    li {
+      display: inline-block;
+      margin-left: $gutter-half / 2;
+      margin-right: $gutter-half / 2;
+      margin-bottom: $gutter / 2;
     }
 
     a {
       text-decoration: none;
       padding-left: 28px;
-      background-position: 0 20%;
       background-repeat: no-repeat;
-    }
+      background-position: 0 20%;
 
-    @include media(tablet) {
-      ul,
-      li {
-        display: inline;
-      }
-
-      ul {
-        margin-left: -$gutter-half / 2;
-        margin-right: -$gutter-half / 2;
-      }
-
-      a {
+      @include media(tablet) {
         background-position: 0 35%;
-        margin-left: $gutter-half / 2;
-        margin-right: $gutter-half / 2;
       }
     }
 
