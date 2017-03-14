@@ -1,6 +1,6 @@
 # Multipage-frontend
 
-A frontend application for rendering content across multiple pages.
+**Travel advice is now rendered by [government-frontend](https://github.com/alphagov/government-frontend). This application is being retired.**
 
 ## Screenshots
 
